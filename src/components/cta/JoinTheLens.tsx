@@ -32,23 +32,32 @@ export default function JoinTheLens() {
             Building something? Document it. Share it. Let fellow founders, ecosystem leaders, and early supporters follow your progress from day one.
           </p>
 
-          <div className="pt-4 flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+          <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-6">
             <Link
               href="/signup"
-              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-tsl-white text-tsl-black font-display font-bold text-sm tracking-widest uppercase hover:bg-tsl-blue transition-all shadow-[0_0_25px_rgba(255,255,255,0.15)] hover:shadow-[0_0_30px_rgba(0,212,255,0.4)] group"
+              className="group relative w-full sm:w-auto inline-flex items-center justify-center btn-hero bg-tsl-white border-2 border-tsl-white hover:border-tsl-blue text-tsl-black font-display font-bold text-xs sm:text-sm tracking-widest uppercase rounded-none overflow-hidden transition-all duration-300 shadow-[0_0_25px_rgba(255,255,255,0.15)] hover:shadow-[0_0_40px_rgba(0,212,255,0.5)]"
             >
-              <span className="flex items-center space-x-2">
-                <UserPlus className="w-4 h-4" />
+              {/* Cyan fill slide up from bottom */}
+              <span className="absolute inset-0 bg-tsl-blue transition-transform duration-500 ease-out origin-bottom translate-y-full group-hover:translate-y-0 pointer-events-none" />
+
+              <span className="relative z-10 flex items-center space-x-2.5 transition-colors duration-300 group-hover:text-tsl-black pointer-events-none">
+                <UserPlus className="w-4 h-4 transition-colors duration-300 group-hover:text-tsl-black" />
                 <span>CREATE YOUR BUILDER PROFILE</span>
-                <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
               </span>
             </Link>
 
             <Link
               href="/login"
-              className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-4 text-xs font-mono uppercase tracking-widest text-tsl-grey hover:text-tsl-white transition-colors"
+              className="group relative w-full sm:w-auto inline-flex items-center justify-center btn-hero bg-tsl-surface/90 backdrop-blur-md border-2 border-tsl-dark-grey hover:border-tsl-white text-tsl-white-soft font-display font-bold text-xs sm:text-sm tracking-widest uppercase rounded-none overflow-hidden transition-all duration-300"
             >
-              Already building? Sign In
+              {/* White fill slide up from bottom */}
+              <span className="absolute inset-0 bg-tsl-white transition-transform duration-500 ease-out origin-bottom translate-y-full group-hover:translate-y-0 pointer-events-none" />
+
+              <span className="relative z-10 flex items-center space-x-2.5 transition-colors duration-300 group-hover:text-tsl-black pointer-events-none">
+                <span>ALREADY BUILDING? SIGN IN</span>
+                <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+              </span>
             </Link>
           </div>
         </motion.div>

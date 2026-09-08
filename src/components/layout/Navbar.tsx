@@ -139,9 +139,10 @@ export default function Navbar() {
             <Link
               href="/login"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full py-3 text-center text-xs font-mono uppercase tracking-wider text-tsl-grey hover:text-tsl-white"
+              className="group relative w-full inline-flex items-center justify-center py-3.5 text-center text-xs font-mono uppercase tracking-wider text-tsl-white-soft/80 bg-tsl-surface/80 border border-tsl-dark-grey hover:border-tsl-white overflow-hidden transition-all duration-300"
             >
-              Already Building? Sign In
+              <span className="absolute inset-0 bg-tsl-surface-elevated transition-transform duration-500 ease-out origin-bottom translate-y-full group-hover:translate-y-0 pointer-events-none" />
+              <span className="relative z-10 group-hover:text-tsl-white">Already Building? Sign In</span>
             </Link>
           </div>
         </div>
