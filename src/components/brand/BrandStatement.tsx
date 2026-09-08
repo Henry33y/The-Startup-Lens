@@ -45,7 +45,7 @@ export default function BrandStatement() {
                 The Startup Lens discovers and documents the founders, startups, and ideas building Africa&apos;s future—while they&apos;re still in the process. Not polished success, but raw progress. Not noise, but signal.
               </p>
             </div>
-            <div className="md:col-span-4 flex flex-col justify-end">
+            {/* <div className="md:col-span-4 flex flex-col justify-end">
               <div className="p-5 bg-tsl-surface border border-tsl-dark-grey space-y-2">
                 <div className="text-xs font-mono uppercase text-tsl-grey">THE THREE PILLARS</div>
                 <div className="text-sm font-display font-semibold text-tsl-white">
@@ -54,7 +54,7 @@ export default function BrandStatement() {
                   3. Community &gt; Audience
                 </div>
               </div>
-            </div>
+            </div> */}
           </motion.div>
         </div>
       </div>
