@@ -33,12 +33,12 @@ export default function Newsletter() {
   };
 
   return (
-    <section className="py-24 bg-tsl-black border-b border-tsl-dark-grey/40 relative">
+    <section className="pt-36 sm:pt-48 lg:pt-56 pb-24 sm:pb-32 bg-tsl-black border-y border-tsl-dark-grey/40 relative">
       <div className="max-w-container mx-auto px-6 sm:px-10 lg:px-16 xl:px-20">
         <div className="max-w-3xl mx-auto text-center space-y-8 bg-tsl-surface p-8 sm:p-14 border border-tsl-dark-grey">
           <div className="inline-flex items-center space-x-2 px-3 py-1 bg-tsl-black border border-tsl-dark-grey text-xs font-mono text-tsl-blue uppercase tracking-widest">
             <Mail className="w-3.5 h-3.5" />
-            <span>WEEKLY AFRICAN ECOSYSTEM DISPATCH</span>
+            <span>JOIN OUR WEEKLY NEWSLETTER</span>
           </div>
 
           <div className="space-y-3">
@@ -87,7 +87,7 @@ export default function Newsletter() {
                 </p>
               )}
               <p className="text-[11px] font-mono text-tsl-grey">
-                NO SPAM. NO RECYCLED PR PRESS RELEASES. UNSUBSCRIBE ANYTIME.
+                NO SPAM. UNSUBSCRIBE ANYTIME.
               </p>
             </form>
           )}

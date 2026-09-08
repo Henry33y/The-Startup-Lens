@@ -19,7 +19,7 @@ const HUB_HIGHLIGHTS = [
 
 export default function AfricaBuilding() {
   return (
-    <section className="py-24 bg-tsl-black border-b border-tsl-dark-grey/40 relative overflow-hidden">
+    <section className="pt-36 sm:pt-48 lg:pt-56 pb-24 sm:pb-32 bg-tsl-black border-y border-tsl-dark-grey/40 relative overflow-hidden">
       <div className="max-w-container mx-auto px-6 sm:px-10 lg:px-16 xl:px-20">
         {/* Header */}
         <div className="max-w-3xl mb-16 space-y-4">

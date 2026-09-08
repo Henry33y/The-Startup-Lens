@@ -10,7 +10,7 @@ export default function BuildersRadar() {
   const builders = DEMO_BUILDERS.slice(0, 6);
 
   return (
-    <section className="py-24 bg-tsl-black-soft border-b border-tsl-dark-grey/40">
+    <section className="pt-36 sm:pt-48 lg:pt-56 pb-24 sm:pb-32 bg-tsl-black-soft border-y border-tsl-dark-grey/40">
       <div className="max-w-container mx-auto px-6 sm:px-10 lg:px-16 xl:px-20">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 space-y-4 md:space-y-0">

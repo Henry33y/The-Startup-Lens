@@ -6,7 +6,7 @@ import { ArrowUpRight, ShieldCheck, UserPlus } from "lucide-react";
 
 export default function JoinTheLens() {
   return (
-    <section className="py-28 bg-tsl-black-soft border-b border-tsl-dark-grey/40 relative overflow-hidden">
+    <section className="pt-36 sm:pt-48 lg:pt-56 pb-28 sm:pb-36 bg-tsl-black-soft border-y border-tsl-dark-grey/40 relative overflow-hidden">
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-tsl-blue/10 rounded-full blur-[140px] pointer-events-none" />
 

@@ -7,7 +7,7 @@ import AfricaHeroMap from "./AfricaHeroMap";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[85vh] sm:min-h-[90vh] flex flex-col justify-start items-center pt-48 sm:pt-60 lg:pt-64 pb-20 sm:pb-28 overflow-hidden bg-tsl-black border-b border-tsl-dark-grey/40" style={{ paddingTop: "200px" }}>
+    <section className="relative min-h-[85vh] sm:min-h-[90vh] flex flex-col justify-start items-center pt-48 sm:pt-60 lg:pt-64 pb-44 sm:pb-56 lg:pb-64 overflow-hidden bg-tsl-black border-b border-tsl-dark-grey/40" style={{ paddingTop: "200px", paddingBottom: "180px" }}>
       {/* African Continent Map Atmospheric Light Reveal Background */}
       <AfricaHeroMap />
 

@@ -27,7 +27,7 @@ export default function StartupsShowcase() {
       : DEMO_STARTUPS.filter((s) => s.category === selectedCategory);
 
   return (
-    <section className="py-24 bg-tsl-black border-b border-tsl-dark-grey/40">
+    <section className="pt-36 sm:pt-48 lg:pt-56 pb-24 sm:pb-32 bg-tsl-black border-y border-tsl-dark-grey/40">
       <div className="max-w-container mx-auto px-6 sm:px-10 lg:px-16 xl:px-20">
         {/* Section Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 space-y-6 lg:space-y-0">

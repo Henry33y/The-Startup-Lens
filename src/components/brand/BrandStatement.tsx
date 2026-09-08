@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function BrandStatement() {
   return (
-    <section className="py-24 sm:py-32 bg-tsl-black-soft border-b border-tsl-dark-grey/40 relative overflow-hidden">
+    <section className="pt-36 sm:pt-48 lg:pt-56 pb-24 sm:pb-32 bg-tsl-black-soft border-y border-tsl-dark-grey/40 relative overflow-hidden">
       {/* Background Subtle Gradient & Lens Line */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-tsl-blue/5 rounded-full blur-[120px] pointer-events-none" />
 
