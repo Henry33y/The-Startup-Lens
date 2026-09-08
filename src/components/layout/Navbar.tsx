@@ -80,9 +80,12 @@ export default function Navbar() {
           </Link>
           <Link
             href="/signup"
-            className="group relative inline-flex items-center justify-center px-5 py-2.5 text-xs font-display font-bold uppercase tracking-widest text-tsl-black bg-tsl-white rounded-none overflow-hidden transition-all duration-300 hover:bg-tsl-blue hover:shadow-[0_0_20px_rgba(0,212,255,0.4)]"
+            className="group relative inline-flex items-center justify-center btn-nav text-xs font-display font-bold uppercase tracking-widest text-tsl-black bg-tsl-white rounded-none overflow-hidden transition-all duration-300 hover:shadow-[0_0_25px_rgba(0,212,255,0.45)]"
           >
-            <span className="relative z-10 flex items-center gap-1.5">
+            {/* Color fill layer sliding from bottom */}
+            <span className="absolute inset-0 bg-tsl-blue transition-transform duration-500 ease-out origin-bottom translate-y-full group-hover:translate-y-0 pointer-events-none" />
+
+            <span className="relative z-10 flex items-center gap-1.5 transition-colors duration-300 group-hover:text-tsl-black pointer-events-none">
               <span>JOIN THE LENS</span>
               <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </span>
@@ -128,9 +131,10 @@ export default function Navbar() {
             <Link
               href="/signup"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full py-4 text-center text-xs font-display font-bold uppercase tracking-widest text-tsl-black bg-tsl-white hover:bg-tsl-blue transition-colors"
+              className="group relative w-full inline-flex items-center justify-center py-4 text-center text-xs font-display font-bold uppercase tracking-widest text-tsl-black bg-tsl-white overflow-hidden transition-all duration-300"
             >
-              JOIN THE LENS
+              <span className="absolute inset-0 bg-tsl-blue transition-transform duration-500 ease-out origin-bottom translate-y-full group-hover:translate-y-0 pointer-events-none" />
+              <span className="relative z-10 group-hover:text-tsl-black">JOIN THE LENS</span>
             </Link>
             <Link
               href="/login"

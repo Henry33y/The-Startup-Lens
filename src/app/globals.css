@@ -52,7 +52,57 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Global Responsive Content Container with Generous Gutter Padding */
+@utility btn-hero {
+  padding: 14px 24px;
+  @media (min-width: 640px) {
+    padding: 18px 36px;
+  }
+  @media (min-width: 1024px) {
+    padding: 20px 48px;
+  }
+}
+
+.btn-hero {
+  padding: 14px 24px;
+}
+
+@media (min-width: 640px) {
+  .btn-hero {
+    padding: 18px 36px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .btn-hero {
+    padding: 20px 48px;
+  }
+}
+
+@utility btn-nav {
+  padding: 10px 18px;
+  @media (min-width: 640px) {
+    padding: 11px 22px;
+  }
+  @media (min-width: 1024px) {
+    padding: 12px 26px;
+  }
+}
+
+.btn-nav {
+  padding: 10px 18px;
+}
+
+@media (min-width: 640px) {
+  .btn-nav {
+    padding: 11px 22px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .btn-nav {
+    padding: 12px 26px;
+  }
+}
 @utility max-w-container {
   max-width: 1280px;
   width: 100%;
