@@ -12,7 +12,7 @@ export default function Hero() {
       <AfricaHeroMap />
 
       <div className="relative z-10 max-w-container mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 text-center flex flex-col items-center">
-        {/* Signal Badge */}
+        {/* Signal Badge
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
@@ -22,7 +22,7 @@ export default function Hero() {
           <Sparkles className="w-3.5 h-3.5 text-tsl-blue animate-pulse" />
           <span className="text-tsl-grey">THE AFRICAN STARTUP ENGINE</span>
           <span className="text-tsl-blue font-semibold">• RAW PROGRESS</span>
-        </motion.div>
+        </motion.div> */}
 
         {/* Display Headline */}
         <motion.h1
