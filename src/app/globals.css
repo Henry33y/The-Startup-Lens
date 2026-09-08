@@ -1,0 +1,293 @@
+@import "tailwindcss";
+
+@theme {
+  --color-tsl-black: #050505;
+  --color-tsl-black-soft: #0A0A0A;
+  --color-tsl-surface: #111111;
+  --color-tsl-surface-border: #1A1A1A;
+  --color-tsl-surface-elevated: #181818;
+  --color-tsl-white: #F8F8F8;
+  --color-tsl-white-soft: #E9E9E9;
+  --color-tsl-grey: #777777;
+  --color-tsl-dark-grey: #292929;
+  --color-tsl-blue: #00D4FF;
+  --color-tsl-blue-glow: rgba(0, 212, 255, 0.15);
+
+  --font-display: var(--font-space-grotesk), sans-serif;
+  --font-sans: var(--font-inter), sans-serif;
+}
+
+:root {
+  --color-tsl-black: #050505;
+  --color-tsl-black-soft: #0A0A0A;
+  --color-tsl-surface: #111111;
+  --color-tsl-surface-border: #1A1A1A;
+  --color-tsl-surface-elevated: #181818;
+  --color-tsl-white: #F8F8F8;
+  --color-tsl-white-soft: #E9E9E9;
+  --color-tsl-grey: #777777;
+  --color-tsl-dark-grey: #292929;
+  --color-tsl-blue: #00D4FF;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+  background-color: var(--color-tsl-black);
+  color: var(--color-tsl-white);
+}
+
+body {
+  background-color: var(--color-tsl-black);
+  color: var(--color-tsl-white);
+  font-family: var(--font-inter), sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Global Responsive Content Container with Generous Gutter Padding */
+@utility max-w-container {
+  max-width: 1280px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+
+  @media (min-width: 640px) {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+  @media (min-width: 1024px) {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+  @media (min-width: 1280px) {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
+
+.max-w-container {
+  max-width: 1280px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .max-w-container {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .max-w-container {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .max-w-container {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
+
+/* Custom Typography Utility Classes */
+.display-xl {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: clamp(3rem, 7vw, 7.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.display-lg {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: clamp(2.5rem, 5vw, 5.5rem);
+  line-height: 1;
+  letter-spacing: -0.035em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.heading-section {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: clamp(2rem, 3.5vw, 3.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.heading-sub {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: clamp(1.25rem, 2vw, 2.25rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+
+/* Lens Accent Glows & Aesthetics */
+.lens-glow {
+  box-shadow: 0 0 40px -10px rgba(0, 212, 255, 0.25);
+}
+
+.lens-border {
+  border: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.lens-gradient-text {
+  background: linear-gradient(135deg, #F8F8F8 30%, rgba(0, 212, 255, 0.9) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.surface-card {
+  background-color: var(--color-tsl-black-soft);
+  border: 1px solid var(--color-tsl-surface-border);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.surface-card:hover {
+  border-color: rgba(0, 212, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #292929;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00D4FF;
+}
+
+/* Africa Map Atmospheric Light Drifts */
+@keyframes africa-drift-1 {
+  0% {
+    transform: translate(-10%, -15%) scale(1);
+    opacity: 0.3;
+  }
+  28% {
+    transform: translate(45%, 20%) scale(1.25);
+    opacity: 0.85;
+  }
+  55% {
+    transform: translate(20%, 60%) scale(0.9);
+    opacity: 0.45;
+  }
+  82% {
+    transform: translate(-5%, 35%) scale(1.15);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(-10%, -15%) scale(1);
+    opacity: 0.3;
+  }
+}
+
+@keyframes africa-drift-2 {
+  0% {
+    transform: translate(50%, 55%) scale(1.2);
+    opacity: 0.35;
+  }
+  32% {
+    transform: translate(5%, 15%) scale(0.9);
+    opacity: 0.75;
+  }
+  68% {
+    transform: translate(35%, -10%) scale(1.3);
+    opacity: 0.5;
+  }
+  88% {
+    transform: translate(55%, 30%) scale(1.05);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(50%, 55%) scale(1.2);
+    opacity: 0.35;
+  }
+}
+
+@keyframes africa-drift-3 {
+  0% {
+    transform: translate(25%, 70%) scale(1);
+    opacity: 0.25;
+  }
+  25% {
+    transform: translate(-15%, 10%) scale(1.2);
+    opacity: 0.65;
+  }
+  58% {
+    transform: translate(50%, 10%) scale(0.85);
+    opacity: 0.8;
+  }
+  85% {
+    transform: translate(35%, 45%) scale(1.15);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate(25%, 70%) scale(1);
+    opacity: 0.25;
+  }
+}
+
+@keyframes africa-lens-focal {
+  0%, 100% {
+    transform: translate(15%, 30%) scale(0.9);
+    opacity: 0.25;
+  }
+  30% {
+    transform: translate(45%, 45%) scale(1.35);
+    opacity: 0.75;
+  }
+  65% {
+    transform: translate(10%, 20%) scale(1);
+    opacity: 0.35;
+  }
+}
+
+.animate-africa-drift-1 {
+  animation: africa-drift-1 10s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+.animate-africa-drift-2 {
+  animation: africa-drift-2 12s cubic-bezier(0.4, 0.1, 0.6, 0.9) infinite;
+}
+
+.animate-africa-drift-3 {
+  animation: africa-drift-3 14s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
+.animate-africa-lens-focal {
+  animation: africa-lens-focal 16s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-africa-drift-1,
+  .animate-africa-drift-2,
+  .animate-africa-drift-3,
+  .animate-africa-lens-focal {
+    animation: none !important;
+  }
+}

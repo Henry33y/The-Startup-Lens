@@ -1,0 +1,43 @@
+import { FounderDrop } from "@/types";
+
+export const DEMO_FOUNDER_DROPS: FounderDrop[] = [
+  {
+    id: "fd1",
+    title: "The Six-Month Pivot",
+    quote: "I spent six months building something nobody actually wanted because I fell in love with the code instead of the farmer's daily workflow.",
+    founderName: "Kwame Mensah",
+    founderRole: "Founder & CTO",
+    startupName: "KubeSolar",
+    avatarUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400",
+    videoThumbnailUrl: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&q=80&w=800",
+    duration: "02:14",
+    slug: "the-six-month-pivot",
+    createdAt: "2025-06-10T00:00:00Z",
+  },
+  {
+    id: "fd2",
+    title: "Offline Data Trust",
+    quote: "If your app breaks when 3G drops, you haven't built for African reality. We redesigned our entire database schema on a notebook in a bus.",
+    founderName: "Aminata Diallo",
+    founderRole: "Co-Founder & CEO",
+    startupName: "Teranga Ledger",
+    avatarUrl: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&q=80&w=400",
+    videoThumbnailUrl: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&q=80&w=800",
+    duration: "01:45",
+    slug: "offline-data-trust",
+    createdAt: "2025-06-14T00:00:00Z",
+  },
+  {
+    id: "fd3",
+    title: "Diagnosing Without Cloud",
+    quote: "In primary care clinics 4 hours outside Lagos, latency is life or death. The model must run directly on the NPU of a $100 smartphone.",
+    founderName: "Tunde Adebayo",
+    founderRole: "Lead Medical AI Engineer",
+    startupName: "OmniHealth AI",
+    avatarUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400",
+    videoThumbnailUrl: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800",
+    duration: "03:02",
+    slug: "diagnosing-without-cloud",
+    createdAt: "2025-06-20T00:00:00Z",
+  },
+];
