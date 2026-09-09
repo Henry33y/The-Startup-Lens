@@ -4,12 +4,16 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowUpRight, Compass, Sparkles } from "lucide-react";
 import AfricaHeroMap from "./AfricaHeroMap";
+import HeroInteractiveParticles from "./HeroInteractiveParticles";
 
 export default function Hero() {
   return (
     <section className="relative min-h-[85vh] sm:min-h-[90vh] flex flex-col justify-start items-center pt-48 sm:pt-60 lg:pt-64 pb-44 sm:pb-56 lg:pb-64 overflow-hidden bg-tsl-black border-b border-tsl-dark-grey/40" style={{ paddingTop: "200px", paddingBottom: "180px" }}>
       {/* African Continent Map Atmospheric Light Reveal Background */}
       <AfricaHeroMap />
+
+      {/* Interactive Cursor Light Glow & Constellation Particles */}
+      <HeroInteractiveParticles />
 
       <div className="relative z-10 max-w-container mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 text-center flex flex-col items-center gap-8 sm:gap-10">
 

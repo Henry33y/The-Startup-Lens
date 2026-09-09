@@ -4,15 +4,15 @@ export default function AfricaHeroMap() {
   return (
     <div
       aria-hidden="true"
-      className="absolute pointer-events-none z-0 w-[340px] h-[440px] sm:w-[480px] sm:h-[620px] md:w-[580px] md:h-[750px] lg:w-[680px] lg:h-[880px] xl:w-[760px] xl:h-[980px] left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 opacity-95 sm:opacity-100 transition-all duration-700"
+      className="absolute pointer-events-none z-0 w-[340px] h-[440px] sm:w-[480px] sm:h-[620px] md:w-[580px] md:h-[750px] lg:w-[680px] lg:h-[880px] xl:w-[760px] xl:h-[980px] left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 opacity-80 sm:opacity-85 transition-all duration-700"
     >
-      {/* 1. Base Resting Map Layer (Higher Opacity & Glow for Crisp Visibility) */}
+      {/* 1. Base Resting Map Layer (Slightly Softened for Balanced Visibility) */}
       <div
-        className="absolute inset-0 bg-contain bg-center bg-no-repeat opacity-40 filter brightness-150 contrast-150 drop-shadow-[0_0_20px_rgba(0,212,255,0.35)]"
+        className="absolute inset-0 bg-contain bg-center bg-no-repeat opacity-28 filter brightness-125 contrast-125 drop-shadow-[0_0_15px_rgba(0,212,255,0.25)]"
         style={{ backgroundImage: `url('/africa_outline.svg')` }}
       />
 
-      {/* 2. Masked Illumination Reveal Layer (SVG Masked with Faster Dynamic Drifts) */}
+      {/* 2. Masked Illumination Reveal Layer (SVG Masked with Dynamic Drifts) */}
       <div
         className="absolute inset-0 overflow-hidden"
         style={{
@@ -27,7 +27,7 @@ export default function AfricaHeroMap() {
         }}
       >
         {/* Base Ambient Cyan Tint Inside Map Boundary */}
-        <div className="absolute inset-0 bg-[rgba(0,212,255,0.22)] mix-blend-screen" />
+        <div className="absolute inset-0 bg-[rgba(0,212,255,0.16)] mix-blend-screen" />
 
         {/* Illumination Field 1 (Faster 10s Organic Drift) */}
         <div className="absolute top-0 left-0 w-[460px] h-[460px] rounded-full bg-[radial-gradient(circle,rgba(0,212,255,0.95)_0%,rgba(0,212,255,0.45)_45%,rgba(0,212,255,0)_75%)] blur-2xl animate-africa-drift-1" />
