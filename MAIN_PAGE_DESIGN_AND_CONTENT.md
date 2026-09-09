@@ -1,250 +1,217 @@
-# The Startup Lens (TSL) — Main Landing Page Overview & Content Structure
+# The Startup Lens (TSL) — Refined Homepage Architecture & Editorial Structure
 
-> **A comprehensive visual, architectural, and content breakdown of the flagship homepage for *The Startup Lens*, documenting how each section looks, behaves, and communicates.**
+> **"Not noise → signal."**  
+> A comprehensive visual, architectural, and content breakdown of the refined flagship homepage for *The Startup Lens*, documenting the tightened 8-section editorial experience.
 
 ---
 
-## 1. Visual Identity & Design System
+## 1. Editorial Philosophy & Guiding Principles
 
-### 1.1 Color Palette
+The homepage does not attempt to explain every product feature or act as an exhaustive directory. Instead, it:
+1. **Creates curiosity** around early-stage African innovation.
+2. **Establishes bold brand positioning** ("Africa isn't short on builders. It's short on visibility.").
+3. **Presents high-signal previews** of what the platform discovers (editorial essays, raw founder dispatches, builders, and startups).
+4. **Paces content intentionally** with generous whitespace, eliminating repetitive dividers and redundant dashboard widgets.
+5. **Provides clear, uncluttered paths** to explore (`/stories`, `/builders`, `/startups`, `/discover`) or join (`/signup`).
+
+---
+
+## 2. Visual Identity & Design System
+
+### 2.1 Color Palette
 - **Primary Background (`--color-tsl-black`)**: `#050505` (Deep void black)
 - **Secondary Surface (`--color-tsl-black-soft`)**: `#0A0A0A`
-- **Elevated Card Background (`--color-tsl-surface`)**: `#111111`
-- **Border / Structural Grid (`--color-tsl-dark-grey`)**: `#292929` & `#1A1A1A`
-- **Primary Brand Accent (`--color-tsl-blue`)**: `#00D4FF` (Vibrant Lens Cyan)
-- **Text Primary (`--color-tsl-white`)**: `#F8F8F8`
-- **Text Muted / Editorial (`--color-tsl-grey`)**: `#777777`
+- **Elevated Surface (`--color-tsl-surface`)**: `#111111`
+- **Grid Borders (`--color-tsl-dark-grey`)**: `#292929` & `#1A1A1A`
+- **Brand Accent (`--color-tsl-blue`)**: `#00D4FF` (Lens Cyan)
+- **Primary Text (`--color-tsl-white`)**: `#F8F8F8`
+- **Editorial Muted Text (`--color-tsl-grey`)**: `#777777`
 
-### 1.2 Typography & Spacing
-- **Display Headlines**: `Space Grotesk` (Uppercase, bold/extra-bold, tight letter-spacing `-0.04em`, high editorial punch).
-- **Body & Editorial Copy**: `Inter` (Clean, highly legible, modern sans-serif).
-- **Metadata, Tags & Counters**: Monospace font (`font-mono`, uppercase, tracked out `tracking-widest`).
-- **Section Spacing**: Standardized generous vertical breathing room (`pt-36 sm:pt-48 lg:pt-56 pb-24 sm:pb-32`) ensuring clear visual separation between storytelling blocks.
-- **Section Dividers**: Centered hairline gradient dividers with a 45°-rotated Cyan diamond anchor node (`SectionDivider`).
+### 2.2 Typography & Pacing
+- **Display Headlines**: `Space Grotesk` (Uppercase, bold, tight letter-spacing `-0.04em`, high editorial punch).
+- **Body & Story Excerpts**: `Inter` (Clean, highly legible, modern sans-serif).
+- **Metadata & Tags**: Monospace font (`font-mono`, uppercase, tracked out `tracking-widest`).
+- **Pacing & Breathing Room**:
+  - `Hero` → Quiet editorial whitespace → `Positioning` → Bold visual storytelling → `The Lens` → Curated preview → `On The Radar` → Short pause → `Before The Success Story` → Continental momentum → `Africa Is Building` → Final conversion → `Join The Lens` → `Footer`.
+- **Restrained Dividers**: Dividers are used sparingly (reduced from 11 down to 1 transition accent before the final conversion moment).
 
-### 1.3 Signature Micro-Interactions
-- **Bottom-to-Top Fill Hover on CTAs**: Buttons have an overflow-hidden mask with an absolute layer that smoothly translates up (`origin-bottom translate-y-full group-hover:translate-y-0`) while text/icons shift contrast.
-- **Card Edge Illumination**: Dark cards transition border color to `rgba(0, 212, 255, 0.3)` and lift `-2px` on hover.
-- **Atmospheric Map Glow**: SVG-masked African continent with four multi-phase organic drifting gradient fields.
-- **Floating Particles Canvas**: 60 FPS lightweight HTML5 canvas rendering floating ambient dust nodes in cyan, soft white, and ice blue.
-
----
-
-## 2. Header & Navigation Bar (`Navbar.tsx`)
-
-### Visual Appearance
-- **Position**: Fixed at `top-0 left-0 right-0 z-50`, height ~`80px`.
-- **Background**: `bg-tsl-black/85` with `backdrop-blur-md` and a thin `border-b border-tsl-dark-grey/60`.
-- **Left**: The Startup Lens brand logo and logomark.
-- **Center**: Editorial navigational links (`DISCOVER`, `STORIES`, `RADAR`, `ECOSYSTEM`, `ABOUT`) with cyan underlines for active route states.
-- **Right**:
-  - Live pulse indicator (Green/Cyan status dot).
-  - Primary CTA Button: **"JOIN THE LENS"** (Cyan bottom-to-top slide hover animation).
-  - Mobile hamburger toggle for responsive drawer navigation.
+### 2.3 Micro-Interactions
+- **Bottom-to-Top Slide Fill Hover**: Interactive CTA buttons on Hero, Join The Lens, and Navbar feature an animated slide-up layer with contrast-shifting text.
+- **Card Edge Illumination**: Dark cards subtly highlight borders to `rgba(0, 212, 255, 0.3)` with a smooth `-2px` lift.
+- **African Map Atmosphere**: SVG-masked African continent with multi-phase organic drifting gradient blooms in the hero background.
+- **Ambient Light Particles**: 60 FPS HTML5 canvas rendering floating ambient micro-dust particles.
 
 ---
 
-## 3. Section-by-Section Content & Layout
+## 3. The 8-Section Master Layout
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│ 1. HERO (African Map + Particles + Headline + CTAs)          │
-├─────────────────────────────────────────────────────────────┤
-│ ❖ Section Divider                                           │
-├─────────────────────────────────────────────────────────────┤
-│ 2. BRAND STATEMENT ("AFRICA ISN'T SHORT ON BUILDERS...")    │
-├─────────────────────────────────────────────────────────────┤
-│ ❖ Section Divider                                           │
-├─────────────────────────────────────────────────────────────┤
-│ 3. FEATURED STORY (Deep-dive Founder Editorial)             │
-├─────────────────────────────────────────────────────────────┤
-│ ❖ Section Divider                                           │
-├─────────────────────────────────────────────────────────────┤
-│ 4. BUILDERS RADAR (Active Founder Profiles & Skill Tags)    │
-├─────────────────────────────────────────────────────────────┤
-│ ❖ Section Divider                                           │
-├─────────────────────────────────────────────────────────────┤
-│ 5. STARTUPS SHOWCASE (Early-stage Startups & Metrics)       │
-├─────────────────────────────────────────────────────────────┤
-│ ❖ Section Divider                                           │
-├─────────────────────────────────────────────────────────────┤
-│ 6. FOUNDER DROPS (Exclusive Raw Audio / Dispatch Notes)     │
-├─────────────────────────────────────────────────────────────┤
-│ ❖ Section Divider                                           │
-├─────────────────────────────────────────────────────────────┤
-│ 7. BUILDER JOURNEY (Visual Milestone Roadmap 0 → 1)         │
-├─────────────────────────────────────────────────────────────┤
-│ ❖ Section Divider                                           │
-├─────────────────────────────────────────────────────────────┤
-│ 8. DISCOVERY ENGINE (Filter by City, Sector, Stage)         │
-├─────────────────────────────────────────────────────────────┤
-│ ❖ Section Divider                                           │
-├─────────────────────────────────────────────────────────────┤
-│ 9. HOW AFRICA IS BUILDING (Ecosystem Pulse & Insights)      │
-├─────────────────────────────────────────────────────────────┤
-│ ❖ Section Divider                                           │
-├─────────────────────────────────────────────────────────────┤
-│ 10. JOIN THE LENS (Primary Builder Network CTA)             │
-├─────────────────────────────────────────────────────────────┤
-│ ❖ Section Divider                                           │
-├─────────────────────────────────────────────────────────────┤
-│ 11. NEWSLETTER (Weekly Signal Dispatch Subscription)        │
-├─────────────────────────────────────────────────────────────┤
-│ 12. FOOTER (Site Map, Legal, Brand Philosophy)              │
-└─────────────────────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────────────────────┐
+│ 1. HERO                                                                │
+│    • African Map Ambient Animation + Floating Light Particles          │
+│    • "SEE WHAT'S BEING BUILT NEXT."                                    │
+│    • Primary CTAs: [ EXPLORE THE LENS ] [ JOIN THE LENS ]             │
+│    • Live Indicator: 1,420+ ACTIVE BUILDERS                            │
+├────────────────────────────────────────────────────────────────────────┤
+│ 2. POSITIONING                                                         │
+│    • "AFRICA ISN'T SHORT ON BUILDERS. IT'S SHORT ON VISIBILITY."       │
+│    • Single concise supporting sentence                                │
+├────────────────────────────────────────────────────────────────────────┤
+│ 3. THE LENS                                                            │
+│    • Dominant Featured Story ("Before The Valuation")                  │
+│    • + Supporting Founder Drop Audio Card ("The Six-Month Pivot")     │
+├────────────────────────────────────────────────────────────────────────┤
+│ 4. ON THE RADAR                                                        │
+│    • "BUILDERS & STARTUPS WORTH WATCHING"                              │
+│    • Interactive Toggle: [ BUILDERS ] | [ STARTUPS ]                   │
+│    • Curated 3-item preview grid with stage tags & metrics             │
+│    • Links to /builders and /startups                                  │
+├────────────────────────────────────────────────────────────────────────┤
+│ 5. BEFORE THE SUCCESS STORY                                            │
+│    • "Follow the process, not just the outcome."                       │
+│    • Compact visual timeline: JAN → MAR → JUN → SEP → NOW              │
+│    • [ VIEW BUILDER JOURNEY → ]                                        │
+├────────────────────────────────────────────────────────────────────────┤
+│ 6. AFRICA IS BUILDING                                                  │
+│    • "Thousands of builders. Hundreds of ideas. One ecosystem."        │
+│    • Curated hub stats: GHANA (124), NIGERIA (318), KENYA (187), SA   │
+│    • Integrated Discovery CTA: [ DISCOVER THE ECOSYSTEM → ]            │
+├────────────────────────────────────────────────────────────────────────┤
+│ ❖ Section Divider (Restrained transitional accent)                    │
+├────────────────────────────────────────────────────────────────────────┤
+│ 7. JOIN THE LENS                                                       │
+│    • "YOUR JOURNEY DESERVES TO BE SEEN."                               │
+│    • Dual Primary CTAs: [ CREATE YOUR BUILDER PROFILE ] [ SIGN IN ]    │
+├────────────────────────────────────────────────────────────────────────┤
+│ 8. FOOTER                                                              │
+│    • Compact Newsletter: "DON'T MISS THE SIGNAL." [ SUBSCRIBE ]        │
+│    • TSL Branding + Editorial Manifesto + Ecosystem Feed indicator     │
+│    • Multi-column Navigation (Explore, Platform, Builders)             │
+│    • Social Links & Copyright                                          │
+└────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-### Section 1: Hero Section (`Hero.tsx`)
-- **Visual Backdrop**:
-  - Soft, atmospheric outline of the African continent with SVG-masked cyan/ice-white illumination pulses drifting across regional hubs.
-  - Floating ambient micro-particles gently breathing in the background.
-- **Top Clearance**: 200px clearance (`pt-48 sm:pt-60 lg:pt-64`) preventing any collision with the fixed header.
-- **Headline**:
+## 4. Section-by-Section Content Specifications
+
+### Section 1: Hero (`Hero.tsx`)
+- **Visual Centerpiece**: Ambient African continent map animation with organic drifting light fields and floating background dust particles.
+- **Top Clearance**: 200px clearance (`pt-48 sm:pt-60 lg:pt-64`) preventing fixed navbar collision across all viewport sizes.
+- **Display Headline**:
   > **SEE WHAT'S** <br>
-  > **BEING BUILT** *(Gradient fill: White → Ice Blue → Lens Cyan)* <br>
+  > **BEING BUILT** *(Gradient: White → Soft White → Cyan)* <br>
   > **NEXT.**
 - **Sub-headline**: "Discover the founders, startups, and ideas shaping Africa's technological future before everyone else catches on."
-- **Interactive CTAs**:
-  1. **"EXPLORE THE LENS"**: Dark slate background with Cyan border, Cyan bottom-to-top slide fill, and compass icon.
-  2. **"JOIN THE LENS"**: Frosted surface with White slide fill animation and arrow icon.
-- **Live Ecosystem Counter**: Pill badge with animated ping indicator: `1,420+ ACTIVE BUILDERS`.
+- **CTAs**:
+  - `EXPLORE THE LENS` (Cyan slide-up hover fill).
+  - `JOIN THE LENS` (White slide-up hover fill).
+- **Status Indicator**: `1,420+ ACTIVE BUILDERS` with animated ping dot.
 
 ---
 
-### Section 2: Brand Statement & Positioning (`BrandStatement.tsx`)
+### Section 2: Positioning (`BrandStatement.tsx`)
 - **Eyebrow Tag**: `[ OUR POSITIONING ]`
-- **Headline Statement**:
+- **Headline**:
   > **AFRICA ISN'T** <br>
   > <span style="color:#777">SHORT ON BUILDERS.</span> <br>
   > **IT'S SHORT ON** <br>
   > <span style="color:#00D4FF">VISIBILITY.</span>
-- **Body Copy**:
-  "The Startup Lens discovers and documents the founders, startups, and ideas building Africa's future—while they're still in the process. Not polished success, but raw progress. Not noise, but signal."
+- **Concise Supporting Sentence**:
+  > *"We document the people building Africa's future while they're still building it."*
+- **Purpose**: Pure emotional brand positioning without paragraphs of feature clutter.
 
 ---
 
-### Section 3: Featured Story (`FeaturedStory.tsx`)
-- **Eyebrow Tag**: `[ FEATURED EDITORIAL ]`
-- **Structure**: High-impact two-column editorial split card.
-- **Visual**: Large featured article visual with high-contrast badge (`ISSUE #04` / `DEEP DIVE`).
-- **Content**:
-  - Title: *"Building Decentralized Energy for 40M Off-Grid Households"*
-  - Founder / Location: *Lagos, Nigeria • 12 min read*
-  - Excerpt on unglamorous execution, hardware iterations, and building in public.
-  - CTA: **"READ THE FULL ESSAY"** with corner-deflecting arrow.
+### Section 3: The Lens (`TheLens.tsx`)
+- **Eyebrow Tag**: `[ THE LENS ]`
+- **Headline**: `WHAT YOU'LL DISCOVER HERE`
+- **Composition**:
+  - **Dominant Featured Story (8 cols)**:
+    - Cinematic 21:9 cover photography with subtle zoom on hover.
+    - Category & reading time badges (`FEATURED STORY`, `6 MIN READ`, `ACCRA • NAIROBI • LAGOS`).
+    - Headline: *"Before The Valuation: Why 14 African Builders Refused Early Seed Checks to Protect Product Velocity"*.
+    - Author attribution + direct **"READ STORY →"** link.
+  - **Supporting Founder Drop (4 cols)**:
+    - Compact audio quote dispatch from Kwame Mensah (Founder & CTO @ KubeSolar).
+    - Quote: *"I spent six months building something nobody actually wanted because I fell in love with the code instead of the farmer's daily workflow."*
+    - One-click audio trigger with duration badge (`02:14`).
 
 ---
 
-### Section 4: Builders Radar (`BuildersRadar.tsx`)
-- **Eyebrow Tag**: `[ ACTIVE BUILDERS RADAR ]`
-- **Headline**: "THE BUILDERS BEHIND THE SCREENS"
-- **Grid Layout**: 3-column responsive card grid highlighting early-stage founders.
-- **Card Details**:
-  - Builder avatar/photo with online indicator.
-  - Name, role, startup name, and hub city (e.g., Nairobi, Cape Town, Accra).
-  - Hashtag pill tags (e.g., `#Fintech`, `#AI`, `#Solar`, `#B2B`).
-  - Interactive **"VIEW BUILDER PROFILE"** button.
+### Section 4: On The Radar (`OnTheRadar.tsx`)
+- **Eyebrow Tag**: `[ ON THE RADAR ]`
+- **Headline**: `BUILDERS & STARTUPS WORTH WATCHING`
+- **Interactive Switcher**: Toggle button bar (`BUILDERS` | `STARTUPS`).
+- **Curated Preview**:
+  - **Builders View**: 3 curated founder cards with stage pills (`STAGE: MVP`), location tags (`Accra, Ghana`), skill hashtags (`#Hardware`, `#Solar`), and direct profile links.
+  - **Startups View**: 3 curated startup cards with sector tags (`Climate`, `Fintech`, `Health`), traction metrics (`$45k MRR`, `+34% MoM`), and startup deep-dive links.
+- **Section Footer Action**: Context-aware link: `EXPLORE FULL BUILDER DIRECTORY →` / `EXPLORE FULL STARTUP INDEX →`.
 
 ---
 
-### Section 5: Startups Showcase (`StartupsShowcase.tsx`)
-- **Eyebrow Tag**: `[ STARTUPS ON THE RADAR ]`
-- **Headline**: "EARLY-STAGE SIGNAL"
-- **Content**: Curated startup cards displaying:
-  - Startup logo + one-line thesis.
-  - Current Stage tag (`Pre-Seed`, `Seed`, `Bootstrapped`).
-  - Traction metrics (e.g., *"$45k MRR • +34% MoM • 12k Active Users"*).
-  - Direct links to their build logs.
+### Section 5: Before The Success Story (`BeforeTheSuccessStory.tsx`)
+- **Eyebrow Tag**: `[ THE PROCESS ]`
+- **Headline**: `BEFORE THE SUCCESS STORY.`
+- **Supporting Sentence**: *"Follow the process, not just the outcome."*
+- **Compact Visual Timeline**:
+  1. `JAN` — **IDEA** (First hypothesis documented)
+  2. `MAR` — **FIRST PROTOTYPE** (Scrappy hardware test on farm)
+  3. `JUN` — **FIRST USERS** (10 pilot solar installations)
+  4. `SEP` — **MVP** (First recurring payment collected)
+  5. `NOW` — **BUILDING...** (Pulsing live beacon • Scaling across Ashanti region)
+- **Action**: `VIEW BUILDER JOURNEY →` linking directly to Kwame Mensah's full timeline.
 
 ---
 
-### Section 6: Founder Drops (`FounderDrop.tsx`)
-- **Eyebrow Tag**: `[ FOUNDER DROPS / RAW DISPATCHES ]`
-- **Concept**: Unfiltered 3–5 minute audio voice notes and written dispatches recorded directly from founder desks.
-- **Visual**: Dark audio waveform player cards with play/pause interaction, duration counters, and tag categories.
+### Section 6: Africa Is Building (`AfricaBuilding.tsx`)
+- **Eyebrow Tag**: `[ CONTINENTAL MOMENTUM ]`
+- **Headline**: `AFRICA IS BUILDING.`
+- **Supporting Sentence**: *"Thousands of builders. Hundreds of ideas. One ecosystem."*
+- **Continental Hub Statistics**:
+  - **GHANA**: `124 BUILDERS` (Accra Hub)
+  - **NIGERIA**: `318 BUILDERS` (Lagos Hub)
+  - **KENYA**: `187 BUILDERS` (Nairobi Hub)
+  - **SOUTH AFRICA**: `231 BUILDERS` (Cape Town Hub)
+- **Lightweight Discovery CTA**:
+  - *"LOOK CLOSER. Explore builders, startups and stories across Africa."*
+  - Button: `DISCOVER THE ECOSYSTEM →` (links to `/discover`).
 
 ---
 
-### Section 7: The Builder's Journey (`BuilderJourney.tsx`)
-- **Eyebrow Tag**: `[ THE BUILDER'S JOURNEY ]`
-- **Concept**: Interactive timeline illustrating the 4 stages of visibility for African founders on TSL:
-  1. **Day 0: The First Line of Code** — Claim profile, publish initial hypothesis.
-  2. **The Build Logs** — Weekly unvarnished milestones and shipped features.
-  3. **The Signal Amplifier** — Indexed on TSL Radar for angel investors and talent.
-  4. **The Network Effect** — Cross-border African ecosystem collaboration.
-
----
-
-### Section 8: Discovery Engine (`Discovery.tsx`)
-- **Concept**: Interactive search and filtering sandbox.
-- **Controls**:
-  - Filter by Country/Hub (Nigeria, Kenya, South Africa, Egypt, Rwanda, Ghana).
-  - Filter by Sector (Fintech, Healthtech, Agritech, Climate, AI/Infra, Logistics).
-  - Search bar with instant live filtering.
-
----
-
-### Section 9: How Africa is Building (`AfricaBuilding.tsx`)
-- **Concept**: High-level macro data & thematic insights across the continent.
-- **Data Points**:
-  - Multi-city momentum indicators (Lagos, Nairobi, Cairo, Kigali, Johannesburg).
-  - Capital efficiency stats and infrastructure deep-dives.
-
----
-
-### Section 10: Call to Action — Join The Lens (`JoinTheLens.tsx`)
+### Section 7: Join The Lens (`JoinTheLens.tsx`)
 - **Eyebrow**: `<ShieldCheck /> JOIN THE AFRICAN BUILDER NETWORK`
 - **Headline**:
   > **YOUR JOURNEY** <br>
   > **DESERVES TO BE SEEN.**
-- **Sub-headline**: "Building something? Document it. Share it. Let fellow founders, ecosystem leaders, and early supporters follow your progress from day one."
-- **Dual Buttons**:
-  1. **"CREATE YOUR BUILDER PROFILE"**: Primary white button with Cyan slide-up hover fill and glowing lens shadow.
-  2. **"ALREADY BUILDING? SIGN IN"**: Elevated glassmorphic button with white slide-up hover fill.
+- **Supporting Copy**: *"Building something? Document it. Share it. Let fellow founders, ecosystem leaders, and early supporters follow your progress from day one."*
+- **Actions**:
+  - `CREATE YOUR BUILDER PROFILE` (Primary Cyan slide-up hover fill, glowing shadow).
+  - `ALREADY BUILDING? SIGN IN` (Secondary elevated glassmorphic button with White slide-up fill).
 
 ---
 
-### Section 11: Weekly Newsletter Dispatch (`Newsletter.tsx`)
-- **Eyebrow**: `<Mail /> JOIN OUR WEEKLY NEWSLETTER`
-- **Headline**: "DON'T MISS THE SIGNAL."
-- **Subtext**: "Stories, builders, and early-stage startups worth watching delivered directly to your inbox every Thursday."
-- **Form**:
-  - Dark input field: `Enter your email address...`
-  - Button: **"SUBSCRIBE TO THE LENS"**
-  - Footer note: `NO SPAM. UNSUBSCRIBE ANYTIME.`
-  - Success State: Interactive green/cyan confirmation badge upon submission.
+### Section 8: Footer & Embedded Newsletter (`Footer.tsx`)
+- **Compact Integrated Newsletter**:
+  - Headline: `DON'T MISS THE SIGNAL.`
+  - Subtext: *"Stories, builders and startups worth watching."*
+  - Form: `[ Email address ] [ SUBSCRIBE ]` with instant confirmation state.
+- **Brand Column**: The Startup Lens logomark, editorial mission statement, and live ecosystem ping indicator.
+- **Navigation Grid**: Explore, Platform, and Builders directory links.
+- **Legal & Social**: Twitter/X, LinkedIn, YouTube, Privacy Policy, and copyright notice.
 
 ---
 
-### Section 12: Footer (`Footer.tsx`)
-- **Brand Column**: The Startup Lens logo, mission statement, and copyright.
-- **Navigation Columns**: Explore, Ecosystem, Platform, and Legal links.
-- **Social Connect**: X (Twitter), LinkedIn, GitHub, Substack links.
-- **Timezone/Region Badge**: `CURATED ACROSS LAGOS • NAIROBI • CAPE TOWN • CAIRO`.
+## 5. File & Component Organization
 
----
-
-## 4. Key Component & File Map
-
-| File Path | Description |
-|---|---|
-| `src/app/(marketing)/page.tsx` | Main marketing page composing all 11 sections and dividers |
-| `src/app/layout.tsx` | Root layout with Google Fonts, metadata, Navbar, and Footer |
-| `src/app/globals.css` | Design system variables, responsive utilities, and typography |
-| `src/components/layout/Navbar.tsx` | Fixed header with brand links, status indicator, and CTA |
-| `src/components/layout/Footer.tsx` | Full-width footer with navigation grid and brand philosophy |
-| `src/components/hero/Hero.tsx` | Hero section with headlines, CTA buttons, and status counter |
-| `src/components/hero/AfricaHeroMap.tsx` | SVG-masked African continent with drifting light blooms |
-| `src/components/hero/HeroInteractiveParticles.tsx` | Ambient floating light particles canvas |
-| `src/components/brand/BrandStatement.tsx` | Editorial brand manifesto on African founder visibility |
-| `src/components/stories/FeaturedStory.tsx` | High-impact featured editorial deep-dive |
-| `src/components/builders/BuildersRadar.tsx` | 3-column builder cards and skill tags |
-| `src/components/startups/StartupsShowcase.tsx` | Early-stage startup cards with metrics and stages |
-| `src/components/founder-drops/FounderDrop.tsx` | Audio waveform players and raw dispatches |
-| `src/components/journey/BuilderJourney.tsx` | 4-stage founder visibility roadmap |
-| `src/components/discovery/Discovery.tsx` | Search and multi-category filtering interface |
-| `src/components/ecosystem/AfricaBuilding.tsx` | Continental momentum and macro insights |
-| `src/components/cta/JoinTheLens.tsx` | High-conversion builder network onboarding CTA |
-| `src/components/newsletter/Newsletter.tsx` | Weekly Thursday dispatch subscription box |
+| Component | File Path | Status / Role on Homepage |
+|---|---|---|
+| **Hero** | `src/components/hero/Hero.tsx` | Main hero visual centerpiece |
+| **Positioning** | `src/components/brand/BrandStatement.tsx` | Brand statement with streamlined copy |
+| **The Lens** | `src/components/home/TheLens.tsx` | Combined featured story + founder drop |
+| **On The Radar** | `src/components/home/OnTheRadar.tsx` | Curated preview with Builders/Startups toggle |
+| **Builder Journey** | `src/components/home/BeforeTheSuccessStory.tsx` | Compact visual milestone timeline |
+| **Africa Is Building** | `src/components/ecosystem/AfricaBuilding.tsx` | Continental hub stats + Discovery CTA |
+| **Join The Lens** | `src/components/cta/JoinTheLens.tsx` | Primary final conversion CTA |
+| **Footer** | `src/components/layout/Footer.tsx` | Full footer with compact newsletter signup |
+| **Full Directory Components** | `FeaturedStory.tsx`, `FounderDrop.tsx`, `BuildersRadar.tsx`, `StartupsShowcase.tsx`, `Discovery.tsx`, `Newsletter.tsx` | Preserved for dedicated `/stories`, `/builders`, `/startups`, and `/discover` routes |
