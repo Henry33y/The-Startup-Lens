@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowUpRight, CheckCircle2, Sparkles } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 const TIMELINE_STEPS = [
   { month: "JAN", title: "IDEA", status: "completed", desc: "First hypothesis documented" },
@@ -14,94 +14,96 @@ const TIMELINE_STEPS = [
 
 export default function BeforeTheSuccessStory() {
   return (
-    <section className="pt-28 sm:pt-36 lg:pt-44 pb-20 sm:pb-28 bg-tsl-black relative overflow-hidden">
+    <section className="pt-24 sm:pt-32 lg:pt-40 pb-20 sm:pb-28 bg-tsl-black relative overflow-hidden">
       <div className="max-w-container mx-auto px-6 sm:px-10 lg:px-16 xl:px-20">
-        {/* Header */}
-        <div className="max-w-3xl mb-12 sm:mb-16 space-y-4">
-          <div className="flex items-center space-x-3">
-            <span className="w-8 h-[2px] bg-tsl-blue" />
-            <span className="font-mono text-xs uppercase tracking-widest text-tsl-blue">
-              THE PROCESS
-            </span>
+        {/* Editorial Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 sm:mb-20 space-y-4 md:space-y-0">
+          <div className="max-w-2xl space-y-3">
+            <div className="flex items-center space-x-3 mb-1">
+              <span className="w-8 h-[1px] bg-tsl-blue" />
+              <span className="font-mono text-xs uppercase tracking-widest text-tsl-blue">
+                THE PROCESS
+              </span>
+            </div>
+            <h2 className="heading-section text-tsl-white">
+              BEFORE THE SUCCESS STORY.
+            </h2>
+            <p className="text-tsl-white-soft/80 text-lg sm:text-xl font-sans font-light">
+              Follow the process, not just the outcome.
+            </p>
           </div>
-          <h2 className="heading-section text-tsl-white">
-            BEFORE THE SUCCESS STORY.
-          </h2>
-          <p className="text-tsl-white-soft/80 text-lg sm:text-xl font-sans font-light">
-            Follow the process, not just the outcome.
-          </p>
+
+          <Link
+            href="/builders/kwame-mensah"
+            className="inline-flex items-center space-x-2 text-xs font-mono font-semibold uppercase tracking-widest text-tsl-blue hover:text-tsl-white transition-colors group"
+          >
+            <span>VIEW BUILDER JOURNEY</span>
+            <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </Link>
         </div>
 
-        {/* Compact Visual Timeline */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="bg-tsl-black-soft border border-tsl-dark-grey p-6 sm:p-10 relative overflow-hidden"
-        >
-          {/* Connecting line on desktop */}
-          <div className="hidden lg:block absolute top-[52px] left-[80px] right-[80px] h-[1px] bg-gradient-to-r from-tsl-blue via-tsl-blue/60 to-tsl-blue/20 pointer-events-none" />
+        {/* Open, Unboxed Visual Timeline */}
+        <div className="relative pt-6 sm:pt-8">
+          {/* Subtle Horizontal Hairline Rule connecting steps across desktop */}
+          <div className="hidden lg:block absolute top-[19px] left-4 right-4 h-[1px] bg-tsl-dark-grey/60 pointer-events-none" />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8 relative z-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-6 relative z-10">
             {TIMELINE_STEPS.map((step, idx) => {
               const isActive = step.status === "active";
 
               return (
-                <div key={step.month} className="space-y-3 flex flex-col items-start lg:items-center text-left lg:text-center">
-                  {/* Step Node */}
-                  <div
-                    className={`w-10 h-10 rounded-full border-2 flex items-center justify-center transition-all ${
-                      isActive
-                        ? "bg-tsl-blue text-tsl-black border-tsl-blue shadow-[0_0_20px_#00D4FF]"
-                        : "bg-tsl-surface border-tsl-dark-grey text-tsl-blue"
-                    }`}
-                  >
-                    {isActive ? (
-                      <span className="w-2.5 h-2.5 rounded-full bg-tsl-black animate-ping" />
-                    ) : (
-                      <CheckCircle2 className="w-4 h-4 text-tsl-blue" />
-                    )}
-                  </div>
-
-                  {/* Month & Title */}
-                  <div>
-                    <div className="text-[11px] font-mono text-tsl-grey uppercase tracking-widest">
-                      {step.month}
-                    </div>
+                <motion.div
+                  key={step.month}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: idx * 0.08 }}
+                  className="space-y-3 flex flex-col items-start"
+                >
+                  {/* Step Node Marker */}
+                  <div className="flex items-center space-x-3">
                     <div
-                      className={`font-display text-base font-bold uppercase tracking-tight ${
-                        isActive ? "text-tsl-blue" : "text-tsl-white"
+                      className={`w-4 h-4 rounded-full border flex items-center justify-center transition-all ${
+                        isActive
+                          ? "bg-tsl-blue border-tsl-blue shadow-[0_0_12px_#00D4FF]"
+                          : "bg-tsl-black border-tsl-blue/60"
                       }`}
                     >
-                      {step.title}
+                      {isActive ? (
+                        <span className="w-1.5 h-1.5 rounded-full bg-tsl-black animate-ping" />
+                      ) : (
+                        <span className="w-1 h-1 rounded-full bg-tsl-blue" />
+                      )}
                     </div>
+
+                    <span className="text-xs font-mono text-tsl-grey tracking-widest uppercase">
+                      {step.month}
+                    </span>
+                  </div>
+
+                  {/* Title */}
+                  <div
+                    className={`font-display text-lg sm:text-xl font-bold uppercase tracking-tight ${
+                      isActive ? "text-tsl-blue" : "text-tsl-white"
+                    }`}
+                  >
+                    {step.title}
                   </div>
 
                   {/* Concise Description */}
-                  <p className="text-xs text-tsl-grey font-sans max-w-[180px]">
+                  <p className="text-xs text-tsl-grey font-sans leading-relaxed max-w-[220px]">
                     {step.desc}
                   </p>
-                </div>
+                </motion.div>
               );
             })}
           </div>
 
-          {/* CTA Footer */}
-          <div className="mt-10 pt-6 border-t border-tsl-dark-grey/50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <div className="text-xs font-mono text-tsl-grey">
-              FEATURING KWAME MENSAH • KUBESOLAR BUILD TIMELINE
-            </div>
-
-            <Link
-              href="/builders/kwame-mensah"
-              className="inline-flex items-center space-x-2 text-xs font-mono font-semibold uppercase tracking-widest text-tsl-blue hover:text-tsl-white transition-colors"
-            >
-              <span>VIEW BUILDER JOURNEY</span>
-              <ArrowUpRight className="w-4 h-4" />
-            </Link>
+          {/* Hairline Editorial Attribution */}
+          <div className="mt-14 pt-6 border-t border-tsl-dark-grey/40 text-[11px] font-mono text-tsl-grey">
+            FEATURING KWAME MENSAH • KUBESOLAR BUILD JOURNEY (ACCRA, GHANA)
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -12,7 +12,7 @@ export default function TheLens() {
   const drop = DEMO_FOUNDER_DROPS[0];
 
   return (
-    <section className="pt-28 sm:pt-36 lg:pt-44 pb-20 sm:pb-28 bg-tsl-black relative overflow-hidden">
+    <section className="pt-28 sm:pt-36 lg:pt-44 pb-28 sm:pb-36 lg:pb-44 bg-tsl-black relative overflow-hidden">
       <div className="max-w-container mx-auto px-6 sm:px-10 lg:px-16 xl:px-20">
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 sm:mb-16 space-y-4 sm:space-y-0">
