@@ -146,7 +146,7 @@ export default function OnTheRadar() {
                     <div className="flex items-start justify-between mb-5">
                       <div className="relative w-14 h-14 overflow-hidden border border-tsl-dark-grey group-hover:border-tsl-blue transition-colors">
                         <Image
-                          src={startup.logoUrl}
+                          src={startup.logoUrl || "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=200"}
                           alt={startup.name}
                           fill
                           className="object-cover filter grayscale-[20%] group-hover:grayscale-0 transition-transform duration-500 group-hover:scale-105"

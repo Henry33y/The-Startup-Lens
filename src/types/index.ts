@@ -1,4 +1,4 @@
-export type Stage = "idea" | "mvp" | "launched";
+export type Stage = "idea" | "mvp" | "launched" | "Idea" | "MVP" | "Launched";
 
 export type Category = "AI" | "Fintech" | "Health" | "Agriculture" | "Climate" | "EdTech" | "E-Commerce";
 
@@ -41,6 +41,12 @@ export type Startup = {
   logoUrl?: string;
   coverImageUrl?: string;
   featured: boolean;
+  metrics?: {
+    mrr?: string;
+    growth?: string;
+    users?: string;
+    [key: string]: string | undefined;
+  };
   createdAt: string;
   updatedAt: string;
 };
