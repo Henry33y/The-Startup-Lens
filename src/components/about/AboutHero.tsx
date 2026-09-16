@@ -19,7 +19,7 @@ export default function AboutHero() {
         />
         {/* Transparent Dark Vignette Overlay for Crisp Contrast */}
         <div className="absolute inset-0 bg-gradient-to-b from-tsl-black/65 via-tsl-black/25 to-tsl-black/90" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.2),rgba(5,5,5,0.5)_85%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.2),rgba(5,5,5,0.2)_85%)]" />
       </div>
 
       <div className="relative z-10 max-w-container mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 text-center flex flex-col items-center justify-center gap-8 sm:gap-10">
