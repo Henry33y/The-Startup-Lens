@@ -3,112 +3,104 @@
 import { motion } from "framer-motion";
 import { Film, UserCheck, Compass, MessageSquareCode, Globe2 } from "lucide-react";
 
-const PLATFORM_AREAS = [
+const PILLARS = [
   {
-    layer: "01",
+    id: "media",
     name: "MEDIA",
     icon: Film,
-    headline: "Stories, founder stories, podcasts, short-form video, and Founder Diaries.",
-    details: "Deep editorial reporting and unfiltered audio dispatches capturing the build process in founder voices.",
+    headline: "Stories and founder dispatches capturing the real build process.",
   },
   {
-    layer: "02",
-    name: "BUILDERS",
-    icon: UserCheck,
-    headline: "Profiles, identities, startups, and progress journeys.",
-    details: "Living founder identities, active projects, and chronological progress logs that document milestones over time.",
-  },
-  {
-    layer: "03",
+    id: "discovery",
     name: "DISCOVERY",
     icon: Compass,
-    headline: "A way to discover builders, startups, and emerging ideas.",
-    details: "A structured discovery radar making early-stage innovation easy to search, filter, and explore across markets.",
+    headline: "A clear way to explore emerging startups and ideas across regions.",
   },
   {
-    layer: "04",
+    id: "builders",
+    name: "BUILDERS",
+    icon: UserCheck,
+    headline: "Profiles and updates from the people turning ideas into products.",
+  },
+  {
+    id: "community",
     name: "COMMUNITY",
     icon: MessageSquareCode,
-    headline: "Following, conversations, reactions, and participation.",
-    details: "Direct connection spaces where founders interact with peers, supporters, operators, and early contributors.",
+    headline: "Direct connections between founders, early supporters, and peers.",
   },
   {
-    layer: "05",
+    id: "ecosystem",
     name: "ECOSYSTEM",
     icon: Globe2,
-    headline: "A broader view of who is building what across Africa.",
-    details: "Real-time ecosystem visibility that maps continental startup momentum, regional clusters, and emerging trends.",
+    headline: "A broader, grounded view of what is being built across Africa.",
   },
 ];
 
 export default function PlatformVision() {
   return (
-    <section className="py-20 sm:py-28 lg:py-32 bg-tsl-black border-b border-tsl-dark-grey/40 relative overflow-hidden">
+    <section className="py-24 sm:py-32 lg:py-36 bg-tsl-black-soft border-b border-tsl-dark-grey/40 relative overflow-hidden">
       <div className="max-w-container mx-auto px-6 sm:px-10 lg:px-16 xl:px-20">
         
-        {/* Section Header */}
-        <div className="max-w-4xl mb-14 sm:mb-20 space-y-4">
-          <div className="flex items-center space-x-3">
-            <span className="w-8 h-[2px] bg-tsl-blue" />
-            <span className="font-mono text-xs uppercase tracking-widest text-tsl-blue">
-              07 / WHAT WE&apos;RE BUILDING
-            </span>
-          </div>
-
-          <h2 className="heading-section text-tsl-white leading-tight">
-            WE&apos;RE NOT JUST PUBLISHING CONTENT. <br />
-            <span className="text-tsl-blue">
-              WE&apos;RE BUILDING A WAY TO SEE AN ECOSYSTEM IN MOTION.
-            </span>
-          </h2>
-
-          <p className="text-tsl-white-soft/80 text-base sm:text-lg font-sans font-light max-w-2xl leading-relaxed">
-            The platform connects editorial storytelling with builder identity, discovery tools, and ecosystem intelligence across five core areas.
-          </p>
+        {/* Section Heading */}
+        <div className="max-w-3xl mb-14 sm:mb-20 space-y-4">
+          <motion.h2
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="heading-section text-tsl-white tracking-tight"
+          >
+            WHAT WE&apos;RE BUILDING
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-base sm:text-xl text-tsl-white-soft/85 font-sans font-light leading-relaxed"
+          >
+            The Startup Lens is expanding into an interconnected platform where discovery, builder identity, storytelling, and community operate as one ecosystem.
+          </motion.p>
         </div>
 
-        {/* 5 Layered Areas */}
-        <div className="space-y-3 sm:space-y-4">
-          {PLATFORM_AREAS.map((area, idx) => {
-            const Icon = area.icon;
-            return (
-              <motion.div
-                key={area.layer}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.06 }}
-                className="p-6 sm:p-7 bg-tsl-black-soft border border-tsl-dark-grey hover:border-tsl-blue/50 transition-colors grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 items-center group"
-              >
-                {/* Area Tag & Name */}
-                <div className="md:col-span-3 flex items-center space-x-3">
-                  <span className="font-mono text-xs font-bold text-tsl-blue tracking-widest">
-                    AREA {area.layer}
-                  </span>
-                  <div className="flex items-center space-x-2">
-                    <Icon className="w-4 h-4 text-tsl-grey group-hover:text-tsl-blue transition-colors" />
-                    <span className="font-display text-lg sm:text-xl font-bold uppercase tracking-tight text-tsl-white group-hover:text-tsl-blue transition-colors">
-                      {area.name}
-                    </span>
+        {/* Connected Platform Architecture Layout */}
+        <div className="relative border border-tsl-dark-grey/80 bg-tsl-black p-6 sm:p-10 lg:p-14">
+          
+          {/* Subtle Grid Crosshair Accents */}
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-[1px] bg-tsl-dark-grey/40" />
+            <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-[1px] bg-tsl-dark-grey/40" />
+          </div>
+
+          <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10">
+            {PILLARS.map((pillar, idx) => {
+              const Icon = pillar.icon;
+              return (
+                <motion.div
+                  key={pillar.name}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.08 }}
+                  className="space-y-3 group"
+                >
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 rounded-full bg-tsl-black-soft border border-tsl-dark-grey flex items-center justify-center group-hover:border-tsl-blue transition-colors">
+                      <Icon className="w-4 h-4 text-tsl-blue" />
+                    </div>
+                    <h3 className="font-display text-lg sm:text-xl font-bold uppercase tracking-tight text-tsl-white group-hover:text-tsl-blue transition-colors">
+                      {pillar.name}
+                    </h3>
                   </div>
-                </div>
 
-                {/* Headline (Middle) */}
-                <div className="md:col-span-5">
-                  <p className="font-display text-xs sm:text-sm font-semibold uppercase tracking-wide text-tsl-white-soft">
-                    {area.headline}
+                  <p className="text-sm sm:text-base text-tsl-grey font-sans font-light leading-relaxed pl-11">
+                    {pillar.headline}
                   </p>
-                </div>
+                </motion.div>
+              );
+            })}
+          </div>
 
-                {/* Details (Right) */}
-                <div className="md:col-span-4">
-                  <p className="text-xs sm:text-sm text-tsl-grey font-sans leading-relaxed">
-                    {area.details}
-                  </p>
-                </div>
-              </motion.div>
-            );
-          })}
         </div>
 
       </div>

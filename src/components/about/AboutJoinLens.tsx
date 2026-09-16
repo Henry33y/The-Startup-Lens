@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowUpRight, ShieldCheck, UserPlus, Compass } from "lucide-react";
+import { ArrowUpRight, UserPlus, Compass } from "lucide-react";
 
 export default function AboutJoinLens() {
   return (
@@ -18,12 +18,6 @@ export default function AboutJoinLens() {
           transition={{ duration: 0.6 }}
           className="max-w-3xl mx-auto p-8 sm:p-14 bg-tsl-black-soft border border-tsl-dark-grey relative space-y-6"
         >
-          {/* Eyebrow badge */}
-          <div className="inline-flex items-center space-x-2 px-3 py-1 bg-tsl-surface border border-tsl-dark-grey text-xs font-mono text-tsl-blue uppercase tracking-widest">
-            <ShieldCheck className="w-3.5 h-3.5 text-tsl-blue" />
-            <span>09 / JOIN THE LENS</span>
-          </div>
-
           {/* Headline */}
           <h2 className="font-display text-3xl sm:text-5xl font-bold uppercase tracking-tight text-tsl-white leading-tight">
             YOUR JOURNEY <br />
@@ -37,10 +31,10 @@ export default function AboutJoinLens() {
             </p>
           </div>
 
-          {/* Dual CTAs with bottom-to-top fill animations */}
+          {/* Dual CTAs */}
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
             
-            {/* Primary CTA: Create Your Builder Profile (Cyan slide-up) */}
+            {/* Primary CTA: Create Your Builder Profile */}
             <Link
               href="/signup"
               className="group relative w-full sm:w-auto inline-flex items-center justify-center btn-hero bg-tsl-white border-2 border-tsl-white hover:border-tsl-blue text-tsl-black font-display font-bold text-xs sm:text-sm tracking-widest uppercase rounded-none overflow-hidden transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(0,212,255,0.4)]"
@@ -54,7 +48,7 @@ export default function AboutJoinLens() {
               </span>
             </Link>
 
-            {/* Secondary CTA: Explore The Builders (White slide-up) */}
+            {/* Secondary CTA: Explore The Builders */}
             <Link
               href="/builders"
               className="group relative w-full sm:w-auto inline-flex items-center justify-center btn-hero bg-tsl-surface/90 backdrop-blur-md border-2 border-tsl-dark-grey hover:border-tsl-white text-tsl-white-soft font-display font-bold text-xs sm:text-sm tracking-widest uppercase rounded-none overflow-hidden transition-all duration-300"
