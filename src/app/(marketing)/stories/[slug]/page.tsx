@@ -3,8 +3,13 @@ import Link from "next/link";
 import { ArrowLeft, Clock, Share2 } from "lucide-react";
 import { DEMO_STORIES } from "@/data/demo/stories";
 
-export default function StoryDetailPage({ params }: { params: { slug: string } }) {
-  const story = DEMO_STORIES.find((s) => s.slug === params.slug) || DEMO_STORIES[0];
+interface StoryDetailPageProps {
+  params: Promise<{ slug: string }>;
+}
+
+export default async function StoryDetailPage({ params }: StoryDetailPageProps) {
+  const { slug } = await params;
+  const story = DEMO_STORIES.find((s) => s.slug === slug) || DEMO_STORIES[0];
 
   return (
     <main className="min-h-screen bg-tsl-black text-tsl-white pt-32 pb-24">

@@ -25,7 +25,7 @@ export default function Newsletter() {
     resolver: zodResolver(newsletterSchema),
   });
 
-  const onSubmit = async (data: NewsletterFormValues) => {
+  const onSubmit = async () => {
     // Demo subscription trigger
     await new Promise((resolve) => setTimeout(resolve, 800));
     setSubscribed(true);

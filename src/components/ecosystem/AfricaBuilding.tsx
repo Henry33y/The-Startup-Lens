@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowUpRight, MapPin } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 const ECOSYSTEM_STATS = [
   { country: "GHANA", count: "124", label: "BUILDERS", hub: "Accra" },

@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, Globe, Layers, UserCheck } from "lucide-react";
+import { ArrowUpRight, Globe, UserCheck } from "lucide-react";
 import { DEMO_STARTUPS } from "@/data/demo/startups";
 import { Category } from "@/types";
 

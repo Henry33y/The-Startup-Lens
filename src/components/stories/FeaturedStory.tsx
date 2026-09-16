@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Clock, User } from "lucide-react";
+import { ArrowUpRight, Clock } from "lucide-react";
 import { DEMO_STORIES } from "@/data/demo/stories";
 
 export default function FeaturedStory() {

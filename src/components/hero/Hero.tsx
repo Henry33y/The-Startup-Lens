@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowUpRight, Compass, Sparkles } from "lucide-react";
+import { ArrowUpRight, Compass } from "lucide-react";
 import AfricaHeroMap from "./AfricaHeroMap";
 import HeroInteractiveParticles from "./HeroInteractiveParticles";
 

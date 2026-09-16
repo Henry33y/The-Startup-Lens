@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { Play, Volume2, ArrowUpRight, Sparkles } from "lucide-react";
 import { DEMO_FOUNDER_DROPS } from "@/data/demo/founder-drops";
 

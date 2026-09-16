@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Clock, Play, Volume2, Sparkles } from "lucide-react";
+import { ArrowUpRight, Clock, Play, Volume2 } from "lucide-react";
 import { DEMO_STORIES } from "@/data/demo/stories";
 import { DEMO_FOUNDER_DROPS } from "@/data/demo/founder-drops";
 
