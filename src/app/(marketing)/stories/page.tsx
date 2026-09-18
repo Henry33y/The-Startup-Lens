@@ -1,75 +1,57 @@
-import Link from "next/link";
-import Image from "next/image";
-import { ArrowUpRight, Clock } from "lucide-react";
+import type { Metadata } from "next";
 import { DEMO_STORIES } from "@/data/demo/stories";
+import StoriesHero from "@/components/stories/StoriesHero";
+import FeaturedStory from "@/components/stories/FeaturedStory";
+import StoryFeed from "@/components/stories/StoryFeed";
+import StoriesJoinCTA from "@/components/stories/StoriesJoinCTA";
+
+export const metadata: Metadata = {
+  title: "Stories from the Build | The Startup Lens",
+  description:
+    "The people, ideas, experiments and lessons behind Africa's emerging startups. Read authentic accounts of building early-stage companies across the continent.",
+  openGraph: {
+    title: "Stories from the Build | The Startup Lens",
+    description:
+      "The people, ideas, experiments and lessons behind Africa's emerging startups.",
+    url: "https://thestartuplens.com/stories",
+    siteName: "The Startup Lens",
+    images: [
+      {
+        url: "/logos/TheStartUPLens-Logo-white.png",
+        width: 1200,
+        height: 630,
+        alt: "The Startup Lens — Stories",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Stories from the Build | The Startup Lens",
+    description:
+      "The people, ideas, experiments and lessons behind Africa's emerging startups.",
+    images: ["/logos/TheStartUPLens-Logo-white.png"],
+  },
+};
 
 export default function StoriesListingPage() {
+  const featuredStory = DEMO_STORIES.find((s) => s.featured) || DEMO_STORIES[0];
+  const latestStories = DEMO_STORIES.filter((s) => s.id !== featuredStory.id);
+
   return (
-    <main className="min-h-screen bg-tsl-black text-tsl-white pt-32 pb-24">
-      <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="max-w-3xl mb-16 space-y-4">
-          <div className="flex items-center space-x-3">
-            <span className="w-8 h-[2px] bg-tsl-blue" />
-            <span className="font-mono text-xs uppercase tracking-widest text-tsl-blue">
-              EDITORIAL ARCHIVE
-            </span>
-          </div>
-          <h1 className="heading-section text-tsl-white">FOUNDER STORIES &amp; INSIGHTS</h1>
-          <p className="text-tsl-grey text-lg font-sans">
-            Unfiltered accounts of building early-stage companies across the African continent.
-          </p>
-        </div>
+    <main className="min-h-screen bg-tsl-black text-tsl-white">
+      {/* 1. HERO */}
+      <StoriesHero />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {DEMO_STORIES.map((story) => (
-            <div
-              key={story.id}
-              className="surface-card group flex flex-col justify-between overflow-hidden"
-            >
-              <div>
-                <div className="relative h-52 w-full bg-tsl-surface overflow-hidden">
-                  <Image
-                    src={story.coverImageUrl}
-                    alt={story.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-tsl-black/80 backdrop-blur-md border border-tsl-dark-grey text-[10px] font-mono text-tsl-blue uppercase font-bold">
-                      {story.category}
-                    </span>
-                  </div>
-                </div>
+      {/* 2. FEATURED STORY (Magazine Centerpiece) */}
+      <FeaturedStory story={featuredStory} />
 
-                <div className="p-6 space-y-4">
-                  <div className="flex items-center space-x-3 text-xs font-mono text-tsl-grey">
-                    <Clock className="w-3.5 h-3.5 text-tsl-blue" />
-                    <span>{story.readingTime} MIN READ</span>
-                  </div>
+      {/* 3 & 4. STORY CATEGORIES & LATEST STORIES (Varied Editorial Grid) */}
+      <StoryFeed stories={latestStories} />
 
-                  <h2 className="font-display text-xl font-bold uppercase tracking-tight text-tsl-white group-hover:text-tsl-blue transition-colors">
-                    {story.title}
-                  </h2>
-
-                  <p className="text-tsl-white-soft/80 text-sm font-sans line-clamp-3">
-                    {story.excerpt}
-                  </p>
-                </div>
-              </div>
-
-              <div className="p-6 pt-0">
-                <Link
-                  href={`/stories/${story.slug}`}
-                  className="w-full inline-flex items-center justify-between px-4 py-3 bg-tsl-surface border border-tsl-dark-grey text-xs font-mono uppercase tracking-wider text-tsl-white group-hover:border-tsl-blue group-hover:text-tsl-blue transition-all"
-                >
-                  <span>READ STORY</span>
-                  <ArrowUpRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+      {/* 5. JOIN THE LENS CTA */}
+      <StoriesJoinCTA />
     </main>
   );
 }

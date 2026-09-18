@@ -1,112 +1,99 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { ArrowUpRight, Clock } from "lucide-react";
+import { Story } from "@/types";
 import { DEMO_STORIES } from "@/data/demo/stories";
 
-export default function FeaturedStory() {
-  const story = DEMO_STORIES[0]; // Featured story
+interface FeaturedStoryProps {
+  story?: Story;
+}
+
+export default function FeaturedStory({ story = DEMO_STORIES[0] }: FeaturedStoryProps) {
+  if (!story) return null;
 
   return (
-    <section className="pt-36 sm:pt-48 lg:pt-56 pb-24 sm:pb-32 bg-tsl-black border-y border-tsl-dark-grey/40">
+    <section className="pt-4 pb-20 sm:pb-28 bg-tsl-black">
       <div className="max-w-container mx-auto px-6 sm:px-10 lg:px-16 xl:px-20">
-        {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 space-y-4 sm:space-y-0">
-          <div>
-            <div className="flex items-center space-x-3 mb-2">
-              <span className="w-8 h-[2px] bg-tsl-blue" />
-              <span className="font-mono text-xs uppercase tracking-widest text-tsl-blue">
-                FEATURED EDITORIAL
-              </span>
-            </div>
-            <h2 className="heading-section text-tsl-white">THE COVER STORY</h2>
-          </div>
-          <Link
-            href="/stories"
-            className="inline-flex items-center space-x-2 text-xs font-mono uppercase tracking-widest text-tsl-grey hover:text-tsl-blue transition-colors group"
-          >
-            <span>VIEW ALL STORIES ({DEMO_STORIES.length})</span>
-            <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-          </Link>
-        </div>
-
-        {/* Featured Story Object */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="group grid grid-cols-1 lg:grid-cols-12 gap-8 bg-tsl-black-soft border border-tsl-dark-grey overflow-hidden hover:border-tsl-blue/40 transition-all duration-500"
+        <Link
+          href={`/stories/${story.slug}`}
+          className="group block bg-tsl-black-soft border border-tsl-dark-grey hover:border-tsl-blue/50 transition-all duration-500 overflow-hidden"
         >
-          {/* Cover Image Container */}
-          <div className="lg:col-span-7 relative min-h-[380px] sm:min-h-[460px] overflow-hidden">
-            <Image
-              src={story.coverImageUrl}
-              alt={story.title}
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-105 filter grayscale-[20%] group-hover:grayscale-0"
-              sizes="(max-width: 1024px) 100vw, 58vw"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-tsl-black via-transparent to-transparent opacity-80 lg:opacity-40" />
-            
-            {/* Category Tag */}
-            <div className="absolute top-6 left-6 z-10">
-              <span className="px-3.5 py-1.5 bg-tsl-black/90 backdrop-blur-md border border-tsl-dark-grey text-xs font-mono uppercase tracking-wider text-tsl-blue font-semibold">
-                {story.category.toUpperCase()} DIARY
-              </span>
-            </div>
-          </div>
-
-          {/* Editorial Content Info */}
-          <div className="lg:col-span-5 p-8 sm:p-10 flex flex-col justify-between space-y-8">
-            <div className="space-y-6">
-              <div className="flex items-center space-x-4 text-xs font-mono text-tsl-grey">
-                <span className="flex items-center space-x-1.5">
-                  <Clock className="w-3.5 h-3.5 text-tsl-blue" />
-                  <span>{story.readingTime} MIN READ</span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
+            {/* Featured Image Container — Dominant Visual Space */}
+            <div className="lg:col-span-7 relative min-h-[320px] sm:min-h-[440px] lg:min-h-[520px] overflow-hidden bg-tsl-surface">
+              <Image
+                src={story.coverImageUrl}
+                alt={story.title}
+                fill
+                priority
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 filter grayscale-[15%] group-hover:grayscale-0"
+                sizes="(max-width: 1024px) 100vw, 60vw"
+              />
+              {/* Soft Ambient Corner Vignette */}
+              <div className="absolute inset-0 bg-gradient-to-t from-tsl-black-soft/70 via-transparent to-transparent lg:hidden" />
+              
+              {/* Category Marker */}
+              <div className="absolute top-5 left-5 z-10">
+                <span className="px-3.5 py-1.5 bg-tsl-black/90 backdrop-blur-md border border-tsl-dark-grey text-xs font-mono uppercase tracking-widest text-tsl-blue font-bold">
+                  {story.category} STORY
                 </span>
-                <span>•</span>
-                <span className="uppercase">JUNE 2025 EDITION</span>
               </div>
-
-              <h3 className="font-display text-2xl sm:text-4xl font-bold uppercase tracking-tight text-tsl-white leading-tight group-hover:text-tsl-blue transition-colors duration-300">
-                {story.title}
-              </h3>
-
-              <p className="text-tsl-white-soft/80 text-base sm:text-lg font-sans leading-relaxed font-normal">
-                {story.excerpt}
-              </p>
             </div>
 
-            {/* Author & Read Action */}
-            <div className="pt-6 border-t border-tsl-dark-grey/60 flex items-center justify-between">
-              <div className="flex items-center space-x-3">
-                <div className="relative w-10 h-10 rounded-full overflow-hidden border border-tsl-dark-grey">
-                  <Image
-                    src={story.author.avatarUrl}
-                    alt={story.author.name}
-                    fill
-                    className="object-cover"
-                  />
+            {/* Editorial Content Column */}
+            <div className="lg:col-span-5 p-8 sm:p-10 lg:p-12 flex flex-col justify-between space-y-8 bg-tsl-black-soft">
+              <div className="space-y-6">
+                {/* Meta Row: Reading Time */}
+                <div className="flex items-center space-x-3 text-xs font-mono text-tsl-grey">
+                  <span className="flex items-center space-x-1.5 text-tsl-blue">
+                    <Clock className="w-3.5 h-3.5" />
+                    <span>{story.readingTime} MIN READ</span>
+                  </span>
+                  <span>•</span>
+                  <span className="uppercase tracking-wider">FEATURE ARTICLE</span>
                 </div>
-                <div>
-                  <div className="text-xs font-semibold text-tsl-white">{story.author.name}</div>
-                  <div className="text-[11px] text-tsl-grey font-mono">{story.author.role}</div>
-                </div>
+
+                {/* Main Headline */}
+                <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold uppercase tracking-tight text-tsl-white leading-[1.1] group-hover:text-tsl-blue transition-colors duration-300">
+                  {story.title}
+                </h2>
+
+                {/* Excerpt */}
+                <p className="text-base sm:text-lg text-tsl-white-soft/80 font-sans font-light leading-relaxed">
+                  {story.excerpt}
+                </p>
               </div>
 
-              <Link
-                href={`/stories/${story.slug}`}
-                className="inline-flex items-center justify-center w-12 h-12 bg-tsl-surface border border-tsl-dark-grey text-tsl-white group-hover:bg-tsl-blue group-hover:text-tsl-black group-hover:border-tsl-blue transition-all duration-300"
-              >
-                <ArrowUpRight className="w-5 h-5" />
-              </Link>
+              {/* Author & Action Footer */}
+              <div className="pt-6 border-t border-tsl-dark-grey/60 flex items-center justify-between">
+                <div className="flex items-center space-x-3.5">
+                  <div className="relative w-11 h-11 rounded-full overflow-hidden border border-tsl-dark-grey group-hover:border-tsl-blue/60 transition-colors">
+                    <Image
+                      src={story.author.avatarUrl}
+                      alt={story.author.name}
+                      fill
+                      className="object-cover"
+                      sizes="44px"
+                    />
+                  </div>
+                  <div>
+                    <div className="text-sm font-semibold text-tsl-white font-sans">
+                      {story.author.name}
+                    </div>
+                    <div className="text-xs text-tsl-grey font-mono">
+                      {story.author.role}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="inline-flex items-center space-x-2 text-xs font-mono font-bold uppercase tracking-widest text-tsl-blue group-hover:text-tsl-white transition-colors">
+                  <span>READ STORY</span>
+                  <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                </div>
+              </div>
             </div>
           </div>
-        </motion.div>
+        </Link>
       </div>
     </section>
   );
