@@ -73,7 +73,7 @@ export default function Navbar() {
         {/* Desktop Primary Action CTA */}
         <div className="hidden md:flex items-center gap-5">
           <Link
-            href="/app/feed"
+            href="/login"
             className="text-xs font-mono font-semibold uppercase tracking-wider text-tsl-grey hover:text-tsl-white transition-colors px-2 py-1"
           >
             Sign In
