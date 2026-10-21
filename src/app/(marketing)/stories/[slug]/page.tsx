@@ -61,7 +61,7 @@ export default async function StoryDetailPage({ params }: StoryDetailPageProps) 
           <Image src={story.coverImageUrl} alt={story.title} fill className="object-cover" priority />
         </div>
 
-        <div className="prose prose-invert max-w-none space-y-6 text-tsl-white-soft text-lg leading-relaxed font-sans">
+        <div className="prose max-w-none space-y-6 text-tsl-white-soft text-lg leading-relaxed font-sans">
           <p>
             Across Africa&apos;s leading technology capitals—Lagos, Nairobi, Accra, and Cape Town—a fundamental transformation is taking place. Founders are shifting away from chasing vanity benchmarks and focusing heavily on product validation.
           </p>

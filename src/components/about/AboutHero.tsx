@@ -17,9 +17,9 @@ export default function AboutHero() {
           priority
           className="object-cover object-center filter contrast-110 scale-105"
         />
-        {/* Transparent Dark Vignette Overlay for Crisp Contrast */}
-        <div className="absolute inset-0 bg-gradient-to-b from-tsl-black/65 via-tsl-black/25 to-tsl-black/90" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.2),rgba(5,5,5,0.2)_85%)]" />
+        {/* Transparent Luminous Overlay for Crisp Contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/75 via-white/45 to-white/95" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(255,255,255,0.6)_85%)]" />
       </div>
 
       <div className="relative z-10 max-w-container mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 text-center flex flex-col items-center justify-center gap-8 sm:gap-10">
@@ -28,7 +28,7 @@ export default function AboutHero() {
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[140px] font-bold uppercase tracking-tight text-tsl-white drop-shadow-[0_8px_40px_rgba(0,0,0,0.95)] leading-none select-none"
+          className="font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[140px] font-bold uppercase tracking-tight text-tsl-white drop-shadow-sm leading-none select-none"
         >
           ABOUT US
         </motion.h1>
@@ -43,7 +43,7 @@ export default function AboutHero() {
           {/* Button 1: Explore the Lens (Cyan fill slide up) */}
           <Link
             href="/discover"
-            className="group relative w-full sm:w-auto inline-flex items-center justify-center btn-hero bg-tsl-black/85 backdrop-blur-md border-2 border-tsl-blue text-tsl-white font-display font-bold text-xs sm:text-sm tracking-widest uppercase rounded-none overflow-hidden transition-all duration-300 shadow-[0_0_25px_rgba(0,212,255,0.35)] hover:shadow-[0_0_40px_rgba(0,212,255,0.7)]"
+            className="group relative w-full sm:w-auto inline-flex items-center justify-center btn-hero bg-tsl-black/85 backdrop-blur-md border-2 border-tsl-blue text-tsl-white font-display font-bold text-xs sm:text-sm tracking-widest uppercase rounded-none overflow-hidden transition-all duration-300 shadow-[0_0_20px_rgba(2,132,199,0.2)] hover:shadow-[0_0_30px_rgba(2,132,199,0.4)]"
           >
             <span className="absolute inset-0 bg-tsl-blue transition-transform duration-500 ease-out origin-bottom translate-y-full group-hover:translate-y-0 pointer-events-none" />
             
@@ -57,7 +57,7 @@ export default function AboutHero() {
           {/* Button 2: Join the Lens (White fill slide up) */}
           <Link
             href="/signup"
-            className="group relative w-full sm:w-auto inline-flex items-center justify-center btn-hero bg-tsl-black/85 backdrop-blur-md border-2 border-tsl-dark-grey hover:border-tsl-white text-tsl-white font-display font-bold text-xs sm:text-sm tracking-widest uppercase rounded-none overflow-hidden transition-all duration-300 shadow-[0_4px_25px_rgba(0,0,0,0.8)]"
+            className="group relative w-full sm:w-auto inline-flex items-center justify-center btn-hero bg-tsl-black/85 backdrop-blur-md border-2 border-tsl-dark-grey hover:border-tsl-white text-tsl-white font-display font-bold text-xs sm:text-sm tracking-widest uppercase rounded-none overflow-hidden transition-all duration-300 shadow-sm"
           >
             <span className="absolute inset-0 bg-tsl-white transition-transform duration-500 ease-out origin-bottom translate-y-full group-hover:translate-y-0 pointer-events-none" />
 

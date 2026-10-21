@@ -158,7 +158,7 @@ export default async function StartupDetailPage({ params }: StartupDetailPagePro
             <h2 className="font-display text-2xl sm:text-3xl font-bold uppercase tracking-tight text-tsl-white">
               WHAT {startup.name.toUpperCase()} IS BUILDING
             </h2>
-            <div className="prose prose-invert text-tsl-white-soft text-base sm:text-lg font-sans leading-relaxed space-y-4">
+            <div className="prose text-tsl-white-soft text-base sm:text-lg font-sans leading-relaxed space-y-4">
               <p>{startup.description}</p>
               <p>
                 Operating in the African tech ecosystem requires deep resilience, localized offline-first architecture, and distribution systems adapted to local commerce behaviors. {startup.name} is pioneering a purpose-built model tailored specifically for {startup.country}.

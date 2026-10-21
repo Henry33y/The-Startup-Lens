@@ -94,7 +94,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-tsl-dark-grey/40">
           {/* Brand & Manifesto Column */}
           <div className="md:col-span-5 space-y-6">
-            <Logo variant="light" size="lg" />
+            <Logo variant="dark" size="lg" />
             <p className="text-tsl-grey text-sm max-w-md leading-relaxed font-sans">
               The Bloomberg + YouTube + LinkedIn for early-stage African builders. We discover, document, and amplify founders shaping Africa&apos;s tech future before everyone else catches on.
             </p>

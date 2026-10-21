@@ -43,7 +43,7 @@ export default function Navbar() {
     >
       <nav className="max-w-container mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 flex items-center justify-between">
         {/* Brand Logo */}
-        <Logo variant="light" size="md" />
+        <Logo variant="dark" size="md" />
 
         {/* Desktop Navigation Links */}
         <div className="hidden md:flex items-center gap-8 lg:gap-10">

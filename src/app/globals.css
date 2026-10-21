@@ -1,37 +1,37 @@
 @import "tailwindcss";
 
 @theme {
-  --color-tsl-black: #050505;
-  --color-tsl-black-soft: #0A0A0A;
-  --color-tsl-surface: #111111;
-  --color-tsl-surface-border: #1A1A1A;
-  --color-tsl-surface-elevated: #181818;
-  --color-tsl-white: #F8F8F8;
-  --color-tsl-white-soft: #E9E9E9;
-  --color-tsl-grey: #777777;
-  --color-tsl-dark-grey: #292929;
-  --color-tsl-blue: #00D4FF;
-  --color-tsl-blue-glow: rgba(0, 212, 255, 0.15);
+  --color-tsl-black: #FFFFFF;
+  --color-tsl-black-soft: #F8FAFC;
+  --color-tsl-surface: #FFFFFF;
+  --color-tsl-surface-border: #E2E8F0;
+  --color-tsl-surface-elevated: #F1F5F9;
+  --color-tsl-white: #0A0A0A;
+  --color-tsl-white-soft: #334155;
+  --color-tsl-grey: #64748B;
+  --color-tsl-dark-grey: #E2E8F0;
+  --color-tsl-blue: #0284C7;
+  --color-tsl-blue-glow: rgba(2, 132, 199, 0.15);
 
   --font-display: var(--font-space-grotesk), sans-serif;
   --font-sans: var(--font-inter), sans-serif;
 }
 
 :root {
-  --color-tsl-black: #050505;
-  --color-tsl-black-soft: #0A0A0A;
-  --color-tsl-surface: #111111;
-  --color-tsl-surface-border: #1A1A1A;
-  --color-tsl-surface-elevated: #181818;
-  --color-tsl-white: #F8F8F8;
-  --color-tsl-white-soft: #E9E9E9;
-  --color-tsl-grey: #777777;
-  --color-tsl-dark-grey: #292929;
-  --color-tsl-blue: #00D4FF;
+  --color-tsl-black: #FFFFFF;
+  --color-tsl-black-soft: #F8FAFC;
+  --color-tsl-surface: #FFFFFF;
+  --color-tsl-surface-border: #E2E8F0;
+  --color-tsl-surface-elevated: #F1F5F9;
+  --color-tsl-white: #0A0A0A;
+  --color-tsl-white-soft: #334155;
+  --color-tsl-grey: #64748B;
+  --color-tsl-dark-grey: #E2E8F0;
+  --color-tsl-blue: #0284C7;
 }
 
 html {
-  color-scheme: dark;
+  color-scheme: light;
   scroll-behavior: smooth;
   background-color: var(--color-tsl-black);
   color: var(--color-tsl-white);
@@ -145,27 +145,29 @@ body {
 
 /* Lens Accent Glows & Aesthetics */
 .lens-glow {
-  box-shadow: 0 0 40px -10px rgba(0, 212, 255, 0.25);
+  box-shadow: 0 0 35px -5px rgba(2, 132, 199, 0.2);
 }
 
 .lens-border {
-  border: 1px solid rgba(0, 212, 255, 0.2);
+  border: 1px solid rgba(2, 132, 199, 0.25);
 }
 
 .lens-gradient-text {
-  background: linear-gradient(135deg, #F8F8F8 30%, rgba(0, 212, 255, 0.9) 100%);
+  background: linear-gradient(135deg, #0A0A0A 20%, #0284C7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .surface-card {
-  background-color: var(--color-tsl-black-soft);
+  background-color: var(--color-tsl-surface);
   border: 1px solid var(--color-tsl-surface-border);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .surface-card:hover {
-  border-color: rgba(0, 212, 255, 0.3);
+  border-color: rgba(2, 132, 199, 0.4);
+  box-shadow: 0 10px 25px -5px rgba(2, 132, 199, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
   transform: translateY(-2px);
 }
 
@@ -174,14 +176,14 @@ body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #050505;
+  background: #F8FAFC;
 }
 ::-webkit-scrollbar-thumb {
-  background: #292929;
+  background: #CBD5E1;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #00D4FF;
+  background: #0284C7;
 }
 
 /* Africa Map Atmospheric Light Drifts */

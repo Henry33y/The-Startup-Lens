@@ -10,7 +10,7 @@ interface LogoProps {
 }
 
 export default function Logo({
-  variant = "light",
+  variant = "dark",
   size = "md",
   className,
   href = "/",
