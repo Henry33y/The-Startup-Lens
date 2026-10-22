@@ -217,7 +217,7 @@ export default async function BuilderProfilePage({ params }: BuilderProfilePageP
                 {journeysToDisplay.map((entry) => (
                   <div key={entry.id} className="relative group">
                     {/* Node Dot */}
-                    <div className="absolute top-1 -left-[31px] sm:-left-[39px] w-5 h-5 rounded-full bg-tsl-black border-2 border-tsl-blue flex items-center justify-center group-hover:scale-125 transition-transform shadow-[0_0_8px_#00D4FF]">
+                    <div className="absolute top-1 -left-[31px] sm:-left-[39px] w-5 h-5 rounded-full bg-tsl-surface border-2 border-tsl-blue flex items-center justify-center group-hover:scale-110 transition-transform">
                       <div className="w-1.5 h-1.5 rounded-full bg-tsl-blue" />
                     </div>
 

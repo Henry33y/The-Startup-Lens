@@ -40,8 +40,8 @@ export default function BuilderJourney() {
               className="relative group"
             >
               {/* Timeline Point Marker */}
-              <div className="absolute top-1 -left-[31px] sm:-left-[55px] w-6 h-6 rounded-full bg-tsl-black border-2 border-tsl-blue flex items-center justify-center group-hover:scale-125 transition-transform shadow-[0_0_10px_#00D4FF]">
-                <div className="w-2 h-2 rounded-full bg-tsl-blue" />
+              <div className="absolute top-1 -left-[31px] sm:-left-[55px] w-5 h-5 rounded-full bg-tsl-surface border-2 border-tsl-blue flex items-center justify-center group-hover:scale-110 transition-transform">
+                <div className="w-1.5 h-1.5 rounded-full bg-tsl-blue" />
               </div>
 
               {/* Timeline Card */}

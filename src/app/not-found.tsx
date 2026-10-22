@@ -7,10 +7,10 @@ export default function NotFound() {
       <div className="max-w-2xl w-full text-center space-y-8">
         {/* Radar Signal Icon */}
         <div className="relative mx-auto w-24 h-24 flex items-center justify-center">
-          <div className="absolute inset-0 rounded-full border border-tsl-blue/30 animate-ping" />
+          <div className="absolute inset-0 rounded-full border border-tsl-blue/30" />
           <div className="absolute inset-2 rounded-full border border-tsl-blue/50" />
           <div className="relative w-14 h-14 bg-tsl-surface border border-tsl-blue flex items-center justify-center text-tsl-blue">
-            <Radio className="w-7 h-7 animate-pulse" />
+            <Radio className="w-7 h-7" />
           </div>
         </div>
 

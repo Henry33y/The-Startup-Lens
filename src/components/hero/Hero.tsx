@@ -1,12 +1,28 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Compass } from "lucide-react";
 import AfricaHeroMap from "./AfricaHeroMap";
+
 export default function Hero() {
   return (
     <section className="relative min-h-[85vh] sm:min-h-[90vh] flex flex-col justify-start items-center pt-48 sm:pt-60 lg:pt-64 pb-44 sm:pb-56 lg:pb-64 overflow-hidden bg-tsl-black border-b border-tsl-dark-grey/40" style={{ paddingTop: "200px", paddingBottom: "180px" }}>
+      {/* Background Hero Photographic Image — Matching About Page Style */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/two-men-producing-radio-show-at-home.jpg"
+          alt="The Startup Lens — Builders in Action"
+          fill
+          priority
+          className="object-cover object-center filter grayscale contrast-110 opacity-70 scale-105"
+        />
+        {/* Transparent Luminous Overlay for Crisp Contrast (Identical to About Page) */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/75 via-white/45 to-white/95" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(255,255,255,0.6)_85%)]" />
+      </div>
+
       {/* African Continent Map Atmospheric Light Reveal Background */}
       <AfricaHeroMap />
 
@@ -80,8 +96,7 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.5 }}
           className="mt-8 flex items-center space-x-6 text-xs text-tsl-grey font-mono bg-tsl-black/60 backdrop-blur-sm px-5 sm:px-6 py-2.5 sm:py-3 border border-tsl-dark-grey/40 rounded-full"
         >
-          <div className="flex items-center space-x-2">
-            <span className="w-2 h-2 rounded-full bg-tsl-blue animate-ping" />
+          <div className="flex items-center">
             <span className="text-tsl-white font-semibold">1,420+ ACTIVE BUILDERS</span>
           </div>
         </motion.div>

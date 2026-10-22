@@ -105,19 +105,14 @@ export default function LensSection() {
                 className="absolute inset-4 sm:inset-6 rounded-full border border-dashed border-tsl-blue/30"
                 animate={shouldReduceMotion ? {} : { rotate: 360 }}
                 transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-              >
-                <span className="absolute -top-1 left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-tsl-blue shadow-[0_0_12px_#00D4FF]" />
-                <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-tsl-blue/60" />
-              </motion.div>
+              />
 
               {/* Layer 3: Counter-Rotating Fine Precision Ring */}
               <motion.div
                 className="absolute inset-10 sm:inset-12 rounded-full border border-tsl-dark-grey/80"
                 animate={shouldReduceMotion ? {} : { rotate: -360 }}
                 transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
-              >
-                <span className="absolute top-1/2 -right-1 -translate-y-1/2 w-2 h-2 rounded-full bg-tsl-white/70 shadow-[0_0_8px_#FFFFFF]" />
-              </motion.div>
+              />
 
               {/* Layer 4: Central Elevated Glass Lens Housing */}
               <div className="relative z-10 w-44 h-44 sm:w-52 sm:h-52 rounded-full bg-gradient-to-b from-tsl-surface/90 to-tsl-black/95 border border-tsl-dark-grey group-hover:border-tsl-blue/60 transition-colors duration-500 flex items-center justify-center p-6 backdrop-blur-xl shadow-[0_0_50px_rgba(0,212,255,0.18)] overflow-hidden">

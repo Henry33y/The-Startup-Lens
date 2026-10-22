@@ -109,8 +109,7 @@ export default function UnderTheLens() {
             </p>
           </div>
 
-          <div className="hidden lg:flex items-center space-x-2 text-xs font-mono text-tsl-grey">
-            <span className="w-2 h-2 rounded-full bg-tsl-blue animate-pulse" />
+          <div className="hidden lg:flex items-center text-xs font-mono text-tsl-grey">
             <span>HOVER ROW TO INSPECT</span>
           </div>
         </div>

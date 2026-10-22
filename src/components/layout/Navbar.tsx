@@ -35,15 +35,15 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 flex items-center",
         isScrolled
-          ? "bg-tsl-black/90 backdrop-blur-md border-b border-tsl-dark-grey/60 py-4 shadow-2xl"
-          : "bg-transparent py-6 sm:py-8"
+          ? "h-[68px] sm:h-[72px] bg-tsl-black/90 backdrop-blur-md border-b border-tsl-dark-grey/60 shadow-2xl"
+          : "h-[80px] sm:h-[88px] bg-transparent"
       )}
     >
-      <nav className="max-w-container mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 flex items-center justify-between">
-        {/* Brand Logo */}
-        <Logo variant="dark" size="md" />
+      <nav className="w-full max-w-container mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 flex items-center justify-between">
+        {/* Brand Logo - Enlarged while strictly maintaining header height */}
+        <Logo variant="dark" size="header" />
 
         {/* Desktop Navigation Links */}
         <div className="hidden md:flex items-center gap-8 lg:gap-10">
@@ -54,7 +54,7 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href}
                 className={cn(
-                  "text-xs lg:text-sm font-medium tracking-widest uppercase transition-colors duration-200 relative group py-1 font-mono",
+                  "text-xs lg:text-sm font-sans font-medium tracking-wider uppercase transition-colors duration-200 relative group py-1",
                   isActive ? "text-tsl-blue font-bold" : "text-tsl-white-soft/80 hover:text-tsl-white"
                 )}
               >
@@ -71,10 +71,10 @@ export default function Navbar() {
         </div>
 
         {/* Desktop Primary Action CTA */}
-        <div className="hidden md:flex items-center gap-5">
+        <div className="hidden md:flex items-center gap-6">
           <Link
             href="/login"
-            className="text-xs font-mono font-semibold uppercase tracking-wider text-tsl-grey hover:text-tsl-white transition-colors px-2 py-1"
+            className="text-xs font-sans font-medium uppercase tracking-wider text-tsl-grey hover:text-tsl-white transition-colors px-2 py-1"
           >
             Sign In
           </Link>
@@ -139,7 +139,7 @@ export default function Navbar() {
             <Link
               href="/login"
               onClick={() => setMobileMenuOpen(false)}
-              className="group relative w-full inline-flex items-center justify-center py-3.5 text-center text-xs font-mono uppercase tracking-wider text-tsl-white-soft/80 bg-tsl-surface/80 border border-tsl-dark-grey hover:border-tsl-white overflow-hidden transition-all duration-300"
+              className="group relative w-full inline-flex items-center justify-center py-3.5 text-center text-xs font-sans font-medium uppercase tracking-wider text-tsl-white-soft/80 bg-tsl-surface/80 border border-tsl-dark-grey hover:border-tsl-white overflow-hidden transition-all duration-300"
             >
               <span className="absolute inset-0 bg-tsl-surface-elevated transition-transform duration-500 ease-out origin-bottom translate-y-full group-hover:translate-y-0 pointer-events-none" />
               <span className="relative z-10 group-hover:text-tsl-white">Already Building? Sign In</span>

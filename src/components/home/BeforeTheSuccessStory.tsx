@@ -65,14 +65,14 @@ export default function BeforeTheSuccessStory() {
                     <div
                       className={`w-4 h-4 rounded-full border flex items-center justify-center transition-all ${
                         isActive
-                          ? "bg-tsl-blue border-tsl-blue shadow-[0_0_12px_#00D4FF]"
-                          : "bg-tsl-black border-tsl-blue/60"
+                          ? "bg-tsl-blue border-tsl-blue"
+                          : "bg-tsl-surface border-tsl-dark-grey"
                       }`}
                     >
                       {isActive ? (
-                        <span className="w-1.5 h-1.5 rounded-full bg-tsl-black animate-ping" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-tsl-black" />
                       ) : (
-                        <span className="w-1 h-1 rounded-full bg-tsl-blue" />
+                        <span className="w-1 h-1 rounded-full bg-tsl-grey" />
                       )}
                     </div>
 

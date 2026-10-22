@@ -99,8 +99,7 @@ export default function Footer() {
               The Bloomberg + YouTube + LinkedIn for early-stage African builders. We discover, document, and amplify founders shaping Africa&apos;s tech future before everyone else catches on.
             </p>
             <div className="pt-2">
-              <span className="inline-flex items-center space-x-2 px-3 py-1 bg-tsl-surface border border-tsl-dark-grey text-xs font-mono text-tsl-blue">
-                <span className="w-2 h-2 rounded-full bg-tsl-blue animate-ping" />
+              <span className="inline-flex items-center px-3 py-1 bg-tsl-surface border border-tsl-dark-grey text-xs font-mono text-tsl-blue">
                 <span>AFRICAN ECOSYSTEM REAL-TIME FEED</span>
               </span>
             </div>
