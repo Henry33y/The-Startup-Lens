@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 const NOT_ITEMS = [
   "A MEDIA TEAM.",
@@ -11,68 +11,50 @@ const NOT_ITEMS = [
 ];
 
 function StrikethroughStatement({ item, idx }: { item: string; idx: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: false, margin: "-40px" });
   const [isHovered, setIsHovered] = useState(false);
-  const [hasAppeared, setHasAppeared] = useState(false);
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.5, delay: idx * 0.12 }}
+      ref={ref}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+      transition={{ duration: 0.5, delay: isInView ? idx * 0.1 : 0 }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className="relative inline-block w-fit cursor-pointer group py-1 select-none"
     >
       {/* Statement Text: Crisply visible in both struck and active states */}
       <motion.span
-        initial={{ opacity: 0.95, color: "rgba(248, 248, 248, 1)" }}
-        whileInView={
-          hasAppeared
-            ? undefined
-            : {
-                opacity: 0.72,
-                color: "rgba(230, 230, 230, 0.8)",
-              }
-        }
         animate={
-          hasAppeared
+          isInView
             ? isHovered
-              ? { opacity: 1, color: "rgba(255, 255, 255, 1)" }
-              : { opacity: 0.72, color: "rgba(230, 230, 230, 0.8)" }
-            : undefined
+              ? { opacity: 1, color: "#0A0A0A" }
+              : { opacity: 0.65, color: "#0A0A0A" }
+            : { opacity: 1, color: "#0A0A0A" }
         }
-        onAnimationComplete={() => setHasAppeared(true)}
-        viewport={{ once: true, margin: "-40px" }}
         transition={{
-          duration: hasAppeared ? 0.3 : 0.5,
-          delay: hasAppeared ? 0 : 0.35 + idx * 0.14,
+          duration: isHovered ? 0.25 : 0.4,
+          delay: isInView && !isHovered ? 0.3 + idx * 0.12 : 0,
           ease: "easeOut",
         }}
-        className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-tight block transition-colors duration-300"
+        className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-tight block transition-colors duration-300 text-tsl-white"
       >
         {item}
       </motion.span>
 
-      {/* Editorial Strikethrough Line: Sweeps left-to-right on scroll, retracts on hover */}
+      {/* Editorial Strikethrough Line: Sweeps left-to-right whenever in view, retracts on hover */}
       <motion.span
-        initial={{ scaleX: 0 }}
-        whileInView={hasAppeared ? undefined : { scaleX: 1 }}
-        animate={
-          hasAppeared
-            ? isHovered
-              ? { scaleX: 0 }
-              : { scaleX: 1 }
-            : undefined
-        }
-        viewport={{ once: true, margin: "-40px" }}
+        animate={{
+          scaleX: isInView && !isHovered ? 1 : 0,
+        }}
         transition={{
-          duration: hasAppeared ? 0.32 : 0.65,
-          delay: hasAppeared ? 0 : 0.2 + idx * 0.14,
-          ease: [0.16, 1, 0.3, 1],
+          duration: isHovered ? 0.28 : isInView ? 0.65 : 0.2,
+          delay: isHovered || !isInView ? 0 : 0.2 + idx * 0.14,
+          ease: isHovered ? "easeOut" : [0.16, 1, 0.3, 1],
         }}
         style={{ transformOrigin: "left" }}
-        className="absolute left-0 top-[50%] -translate-y-1/2 w-full h-[3px] sm:h-[4px] bg-tsl-blue origin-left pointer-events-none shadow-[0_0_12px_rgba(0,212,255,0.6)]"
+        className="absolute left-0 top-[50%] -translate-y-1/2 w-full h-[3px] sm:h-[4px] bg-tsl-blue origin-left pointer-events-none shadow-[0_0_8px_rgba(2,132,199,0.3)]"
       />
     </motion.div>
   );
@@ -88,7 +70,7 @@ export default function WhatWereNot() {
           <motion.h2
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: false, margin: "-50px" }}
             transition={{ duration: 0.6 }}
             className="heading-section text-tsl-white tracking-tight"
           >
