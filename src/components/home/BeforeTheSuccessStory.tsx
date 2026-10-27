@@ -14,17 +14,18 @@ const TIMELINE_STEPS = [
 
 export default function BeforeTheSuccessStory() {
   return (
-    <section className="pt-24 sm:pt-32 lg:pt-40 pb-20 sm:pb-28 bg-tsl-black relative overflow-hidden">
+    <section className="pt-16 sm:pt-20 lg:pt-24 pb-20 sm:pb-28 bg-tsl-black relative overflow-hidden">
       <div className="max-w-container mx-auto px-6 sm:px-10 lg:px-16 xl:px-20">
+        {/* Centered Section Heading */}
+        <div className="w-full flex justify-center mb-8 sm:mb-12 pb-2">
+          <span className="font-mono text-base sm:text-lg uppercase tracking-widest text-tsl-white font-semibold border-b-2 border-tsl-white pb-1 inline-block">
+            THE PROCESS
+          </span>
+        </div>
+
         {/* Editorial Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 sm:mb-20 space-y-4 md:space-y-0">
           <div className="max-w-2xl space-y-3">
-            <div className="flex items-center space-x-3 mb-1">
-              <span className="w-8 h-[1px] bg-tsl-blue" />
-              <span className="font-mono text-xs uppercase tracking-widest text-tsl-blue">
-                THE PROCESS
-              </span>
-            </div>
             <h2 className="heading-section text-tsl-white">
               BEFORE THE SUCCESS STORY.
             </h2>

@@ -50,16 +50,15 @@ export default function ManifestoSection() {
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-tsl-blue/5 rounded-full blur-[180px] pointer-events-none" />
 
       <div className="max-w-container mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 relative z-10">
-        
+        {/* Centered Section Heading */}
+        <div className="w-full flex justify-center mb-8 sm:mb-12 pb-2">
+          <span className="font-mono text-base sm:text-lg uppercase tracking-widest text-tsl-white font-semibold border-b-2 border-tsl-white pb-1 inline-block">
+            03 / THE MANIFESTO
+          </span>
+        </div>
+
         {/* Section Header */}
         <div className="max-w-4xl mb-20 sm:mb-28 lg:mb-36 space-y-6">
-          <div className="flex items-center space-x-3">
-            <span className="w-8 h-[2px] bg-tsl-blue" />
-            <span className="font-mono text-xs uppercase tracking-widest text-tsl-blue">
-              03 / THE MANIFESTO
-            </span>
-          </div>
-
           <h2 className="display-lg text-tsl-white tracking-tight">
             THIS IS WHAT <br />
             <span className="text-tsl-blue">WE&apos;RE ABOUT.</span>

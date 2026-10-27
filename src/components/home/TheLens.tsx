@@ -12,17 +12,18 @@ export default function TheLens() {
   const drop = DEMO_FOUNDER_DROPS[0];
 
   return (
-    <section className="pt-28 sm:pt-36 lg:pt-44 pb-28 sm:pb-36 lg:pb-44 bg-tsl-black relative overflow-hidden">
+    <section className="pt-16 sm:pt-20 lg:pt-24 pb-28 sm:pb-36 lg:pb-44 bg-tsl-black relative overflow-hidden">
       <div className="max-w-container mx-auto px-6 sm:px-10 lg:px-16 xl:px-20">
+        {/* Centered Section Heading */}
+        <div className="w-full flex justify-center mb-8 sm:mb-12 pb-2">
+          <span className="font-mono text-base sm:text-lg uppercase tracking-widest text-tsl-white font-semibold border-b-2 border-tsl-white pb-1 inline-block">
+            THE LENS
+          </span>
+        </div>
+
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 sm:mb-16 space-y-4 sm:space-y-0">
           <div>
-            <div className="flex items-center space-x-3 mb-2">
-              <span className="w-8 h-[2px] bg-tsl-blue" />
-              <span className="font-mono text-xs uppercase tracking-widest text-tsl-blue">
-                THE LENS
-              </span>
-            </div>
             <h2 className="heading-section text-tsl-white">WHAT YOU&apos;LL DISCOVER HERE</h2>
           </div>
           <Link

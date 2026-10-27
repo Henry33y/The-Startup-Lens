@@ -9,14 +9,15 @@ export default function BuilderJourney() {
   return (
     <section className="pt-36 sm:pt-48 lg:pt-56 pb-24 sm:pb-32 bg-tsl-black border-y border-tsl-dark-grey/40 relative overflow-hidden">
       <div className="max-w-container mx-auto px-6 sm:px-10 lg:px-16 xl:px-20">
+        {/* Centered Section Heading */}
+        <div className="w-full flex justify-center mb-8 sm:mb-12 pb-2">
+          <span className="font-mono text-base sm:text-lg uppercase tracking-widest text-tsl-white font-semibold border-b-2 border-tsl-white pb-1 inline-block">
+            SIGNATURE FEATURE
+          </span>
+        </div>
+
         {/* Header */}
         <div className="max-w-3xl mb-16 space-y-4">
-          <div className="flex items-center space-x-3">
-            <span className="w-8 h-[2px] bg-tsl-blue" />
-            <span className="font-mono text-xs uppercase tracking-widest text-tsl-blue">
-              SIGNATURE FEATURE
-            </span>
-          </div>
           <h2 className="heading-section text-tsl-white">
             SUCCESS ISN&apos;T THE STARTING POINT.
           </h2>

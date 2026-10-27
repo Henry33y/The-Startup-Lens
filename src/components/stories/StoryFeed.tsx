@@ -64,15 +64,16 @@ export default function StoryFeed({ stories }: StoryFeedProps) {
             </div>
           </nav>
 
+          {/* Centered Section Heading */}
+          <div className="w-full flex justify-center mb-8 sm:mb-12 pb-2">
+            <span className="font-mono text-base sm:text-lg uppercase tracking-widest text-tsl-white font-semibold border-b-2 border-tsl-white pb-1 inline-block">
+              ARCHIVE
+            </span>
+          </div>
+
           {/* Section Heading & Result Count */}
           <div className="flex items-center justify-between">
             <div className="space-y-1">
-              <div className="flex items-center space-x-3">
-                <span className="w-6 h-[2px] bg-tsl-blue" />
-                <span className="font-mono text-xs uppercase tracking-widest text-tsl-blue">
-                  ARCHIVE
-                </span>
-              </div>
               <h2 className="heading-section text-tsl-white">
                 LATEST STORIES
               </h2>

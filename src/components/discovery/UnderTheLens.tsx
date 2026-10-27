@@ -93,16 +93,17 @@ export default function UnderTheLens() {
   return (
     <section className="py-24 sm:py-32 bg-tsl-black border-b border-tsl-dark-grey/40 relative overflow-hidden">
       <div className="max-w-container mx-auto px-6 sm:px-10 lg:px-16 xl:px-20">
+        {/* Centered Section Heading */}
+        <div className="w-full flex justify-center mb-8 sm:mb-12 pb-2">
+          <span className="font-mono text-base sm:text-lg uppercase tracking-widest text-tsl-white flex items-center gap-2 font-semibold border-b-2 border-tsl-white pb-1 inline-flex">
+            <Eye className="w-4 h-4" />
+            <span>SIGNATURE DISCOVERY</span>
+          </span>
+        </div>
+
         {/* Section Header with Subtle Lens Reticle Marker */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 sm:mb-20 gap-6">
           <div>
-            <div className="flex items-center space-x-3 mb-3">
-              <span className="w-8 h-[2px] bg-tsl-blue" />
-              <span className="font-mono text-xs uppercase tracking-widest text-tsl-blue flex items-center gap-2">
-                <Eye className="w-3.5 h-3.5" />
-                <span>SIGNATURE DISCOVERY</span>
-              </span>
-            </div>
             <h2 className="heading-section text-tsl-white">UNDER THE LENS</h2>
             <p className="text-base sm:text-lg text-tsl-white-soft/80 font-sans mt-2">
               People and ideas that deserve a closer look.

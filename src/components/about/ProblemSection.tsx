@@ -11,10 +11,9 @@ export default function ProblemSection() {
       <div className="max-w-container mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 relative z-10">
         <div className="space-y-12 sm:space-y-16">
           
-          {/* Eyebrow / Section Marker */}
-          <div className="flex items-center space-x-3">
-            <span className="w-8 h-[2px] bg-tsl-blue" />
-            <span className="font-mono text-xs uppercase tracking-widest text-tsl-blue">
+          {/* Section Heading */}
+          <div className="w-full flex justify-center pb-2 sm:pb-4">
+            <span className="font-mono text-base sm:text-lg uppercase tracking-widest text-tsl-white font-semibold border-b-2 border-tsl-white pb-1 inline-block">
               01 / THE PROBLEM
             </span>
           </div>

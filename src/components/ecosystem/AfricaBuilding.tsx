@@ -13,19 +13,20 @@ const ECOSYSTEM_STATS = [
 
 export default function AfricaBuilding() {
   return (
-    <section className="pt-28 sm:pt-36 lg:pt-44 pb-24 sm:pb-32 bg-tsl-black relative overflow-hidden">
+    <section className="pt-16 sm:pt-20 lg:pt-24 pb-24 sm:pb-32 bg-tsl-black relative overflow-hidden">
       {/* Subtle ambient light gradient */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-tsl-blue/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-container mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 relative z-10">
+        {/* Centered Section Heading */}
+        <div className="w-full flex justify-center mb-8 sm:mb-12 pb-2">
+          <span className="font-mono text-base sm:text-lg uppercase tracking-widest text-tsl-white font-semibold border-b-2 border-tsl-white pb-1 inline-block">
+            CONTINENTAL MOMENTUM
+          </span>
+        </div>
+
         {/* Section Header */}
         <div className="max-w-3xl mb-14 sm:mb-20 space-y-4">
-          <div className="flex items-center space-x-3">
-            <span className="w-8 h-[2px] bg-tsl-blue" />
-            <span className="font-mono text-xs uppercase tracking-widest text-tsl-blue">
-              CONTINENTAL MOMENTUM
-            </span>
-          </div>
           <h2 className="heading-section text-tsl-white">
             AFRICA IS BUILDING.
           </h2>

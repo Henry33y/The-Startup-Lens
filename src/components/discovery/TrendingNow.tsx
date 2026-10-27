@@ -15,14 +15,15 @@ export default function TrendingNow({ builder, startup, story }: TrendingNowProp
   return (
     <section className="py-20 sm:py-28 bg-tsl-black-soft border-b border-tsl-dark-grey/40">
       <div className="max-w-container mx-auto px-6 sm:px-10 lg:px-16 xl:px-20">
+        {/* Centered Section Heading */}
+        <div className="w-full flex justify-center mb-8 sm:mb-12 pb-2">
+          <span className="font-mono text-base sm:text-lg uppercase tracking-widest text-tsl-white font-semibold border-b-2 border-tsl-white pb-1 inline-block">
+            CURATED SELECTION
+          </span>
+        </div>
+
         {/* Section Header */}
         <div className="mb-12 sm:mb-16">
-          <div className="flex items-center space-x-3 mb-2">
-            <span className="w-6 h-[2px] bg-tsl-blue" />
-            <span className="font-mono text-xs uppercase tracking-widest text-tsl-blue">
-              CURATED SELECTION
-            </span>
-          </div>
           <h2 className="heading-section text-tsl-white">TRENDING NOW</h2>
         </div>
 

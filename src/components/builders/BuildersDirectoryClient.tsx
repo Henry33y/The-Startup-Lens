@@ -48,14 +48,15 @@ export default function BuildersDirectoryClient({ initialBuilders }: BuildersDir
   return (
     <div className="pt-32 sm:pt-40 pb-24 sm:pb-32">
       <div className="max-w-container mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 space-y-16">
+        {/* Centered Page Heading */}
+        <div className="w-full flex justify-center pb-2 sm:pb-4">
+          <span className="font-mono text-base sm:text-lg uppercase tracking-widest text-tsl-white font-semibold border-b-2 border-tsl-white pb-1 inline-block">
+            RADAR DIRECTORY // {initialBuilders.length} PROFILES DOCUMENTED
+          </span>
+        </div>
+
         {/* Page Header */}
         <div className="space-y-6 max-w-3xl">
-          <div className="flex items-center space-x-3">
-            <span className="w-8 h-[2px] bg-tsl-blue" />
-            <span className="font-mono text-xs uppercase tracking-widest text-tsl-blue">
-              RADAR DIRECTORY // {initialBuilders.length} PROFILES DOCUMENTED
-            </span>
-          </div>
           <h1 className="heading-hero text-tsl-white">
             BUILDERS ON RADAR.
           </h1>

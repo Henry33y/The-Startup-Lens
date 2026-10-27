@@ -4,16 +4,15 @@ import { motion } from "framer-motion";
 
 export default function BrandStatement() {
   return (
-    <section className="pt-36 sm:pt-48 lg:pt-56 pb-24 sm:pb-32 bg-tsl-black-soft border-y border-tsl-dark-grey/40 relative overflow-hidden">
+    <section className="pt-16 sm:pt-20 lg:pt-24 pb-24 sm:pb-32 bg-tsl-black-soft border-y border-tsl-dark-grey/40 relative overflow-hidden">
       {/* Background Subtle Gradient & Lens Line */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-tsl-blue/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-container mx-auto px-6 sm:px-10 lg:px-16 xl:px-20">
         <div className="max-w-5xl mx-auto space-y-12">
-          {/* Section Marker */}
-          <div className="flex items-center space-x-3">
-            <span className="w-8 h-[2px] bg-tsl-blue" />
-            <span className="font-mono text-xs uppercase tracking-widest text-tsl-blue">
+          {/* Section Heading */}
+          <div className="w-full flex justify-center pb-2 sm:pb-4">
+            <span className="font-mono text-base sm:text-lg uppercase tracking-widest text-tsl-white font-semibold border-b-2 border-tsl-white pb-1 inline-block">
               OUR POSITIONING
             </span>
           </div>

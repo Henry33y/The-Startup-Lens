@@ -16,15 +16,16 @@ export default function BuildersToWatch({ builders }: BuildersToWatchProps) {
   return (
     <section className="py-24 sm:py-32 bg-tsl-black-soft text-tsl-white border-b border-tsl-dark-grey/40">
       <div className="max-w-container mx-auto px-6 sm:px-10 lg:px-16 xl:px-20">
+        {/* Centered Section Heading */}
+        <div className="w-full flex justify-center mb-8 sm:mb-12 pb-2">
+          <span className="font-mono text-base sm:text-lg uppercase tracking-widest text-tsl-white font-semibold border-b-2 border-tsl-white pb-1 inline-block">
+            BUILDER SPOTLIGHT
+          </span>
+        </div>
+
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-4">
           <div>
-            <div className="flex items-center space-x-3 mb-2">
-              <span className="w-6 h-[2px] bg-tsl-blue" />
-              <span className="font-mono text-xs uppercase tracking-widest text-tsl-blue font-semibold">
-                BUILDER SPOTLIGHT
-              </span>
-            </div>
             <h2 className="heading-section text-tsl-white">BUILDERS TO WATCH</h2>
             <p className="text-base sm:text-lg text-tsl-white-soft/80 font-sans mt-2">
               People worth paying attention to.

@@ -15,17 +15,18 @@ export default function OnTheRadar() {
   const previewStartups = DEMO_STARTUPS.slice(0, 3);
 
   return (
-    <section className="pt-28 sm:pt-36 lg:pt-44 pb-24 sm:pb-32 bg-tsl-black-soft border-y border-tsl-dark-grey/40 relative">
+    <section className="pt-16 sm:pt-20 lg:pt-24 pb-24 sm:pb-32 bg-tsl-black-soft border-y border-tsl-dark-grey/40 relative">
       <div className="max-w-container mx-auto px-6 sm:px-10 lg:px-16 xl:px-20">
+        {/* Centered Section Heading */}
+        <div className="w-full flex justify-center mb-8 sm:mb-12 pb-2">
+          <span className="font-mono text-base sm:text-lg uppercase tracking-widest text-tsl-white font-semibold border-b-2 border-tsl-white pb-1 inline-block">
+            ON THE RADAR
+          </span>
+        </div>
+
         {/* Header with Title & Tab Switcher */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 space-y-6 md:space-y-0">
           <div>
-            <div className="flex items-center space-x-3 mb-2">
-              <span className="w-8 h-[2px] bg-tsl-blue" />
-              <span className="font-mono text-xs uppercase tracking-widest text-tsl-blue">
-                ON THE RADAR
-              </span>
-            </div>
             <h2 className="heading-section text-tsl-white">
               BUILDERS &amp; STARTUPS WORTH WATCHING
             </h2>

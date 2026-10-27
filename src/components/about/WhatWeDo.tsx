@@ -42,15 +42,15 @@ export default function WhatWeDo() {
   return (
     <section className="pt-28 sm:pt-36 lg:pt-44 pb-28 sm:pb-36 lg:pb-44 bg-tsl-black-soft border-b border-tsl-dark-grey/40 relative overflow-hidden">
       <div className="max-w-container mx-auto px-6 sm:px-10 lg:px-16 xl:px-20">
-        
+        {/* Centered Section Heading */}
+        <div className="w-full flex justify-center mb-8 sm:mb-12 pb-2">
+          <span className="font-mono text-base sm:text-lg uppercase tracking-widest text-tsl-white font-semibold border-b-2 border-tsl-white pb-1 inline-block">
+            04 / WHAT WE DO
+          </span>
+        </div>
+
         {/* Section Header */}
         <div className="max-w-3xl mb-16 sm:mb-24 space-y-4">
-          <div className="flex items-center space-x-3">
-            <span className="w-8 h-[2px] bg-tsl-blue" />
-            <span className="font-mono text-xs uppercase tracking-widest text-tsl-blue">
-              04 / WHAT WE DO
-            </span>
-          </div>
           <h2 className="heading-section text-tsl-white">
             FOUR WAYS WE OPERATE.
           </h2>

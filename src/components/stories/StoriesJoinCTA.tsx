@@ -6,13 +6,11 @@ export default function StoriesJoinCTA() {
     <section className="py-20 sm:py-28 bg-tsl-black border-t border-tsl-dark-grey/40">
       <div className="max-w-container mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 text-center">
         <div className="max-w-3xl mx-auto space-y-6">
-          {/* Accent Marker */}
-          <div className="flex items-center justify-center space-x-3">
-            <span className="w-8 h-[2px] bg-tsl-blue" />
-            <span className="font-mono text-xs uppercase tracking-widest text-tsl-blue">
+          {/* Section Heading */}
+          <div className="w-full flex justify-center pb-2 sm:pb-4">
+            <span className="font-mono text-base sm:text-lg uppercase tracking-widest text-tsl-white font-semibold border-b-2 border-tsl-white pb-1 inline-block">
               BUILD IN PUBLIC
             </span>
-            <span className="w-8 h-[2px] bg-tsl-blue" />
           </div>
 
           {/* Heading */}

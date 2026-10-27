@@ -12,15 +12,16 @@ export default function BuildersRadar() {
   return (
     <section className="pt-36 sm:pt-48 lg:pt-56 pb-24 sm:pb-32 bg-tsl-black-soft border-y border-tsl-dark-grey/40">
       <div className="max-w-container mx-auto px-6 sm:px-10 lg:px-16 xl:px-20">
+        {/* Centered Section Heading */}
+        <div className="w-full flex justify-center mb-8 sm:mb-12 pb-2">
+          <span className="font-mono text-base sm:text-lg uppercase tracking-widest text-tsl-white font-semibold border-b-2 border-tsl-white pb-1 inline-block">
+            EARLY DISCOVERY
+          </span>
+        </div>
+
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 space-y-4 md:space-y-0">
           <div>
-            <div className="flex items-center space-x-3 mb-2">
-              <span className="w-8 h-[2px] bg-tsl-blue" />
-              <span className="font-mono text-xs uppercase tracking-widest text-tsl-blue">
-                EARLY DISCOVERY
-              </span>
-            </div>
             <h2 className="heading-section text-tsl-white">ON OUR RADAR</h2>
             <p className="text-tsl-grey text-base font-sans mt-2">
               Builders you should know before everyone else does.

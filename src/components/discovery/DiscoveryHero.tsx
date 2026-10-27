@@ -35,19 +35,19 @@ export default function DiscoveryHero() {
       </div>
 
       <div className="relative z-10 max-w-container mx-auto px-6 sm:px-10 lg:px-16 xl:px-20">
+        {/* Centered Section Heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="w-full flex justify-center mb-8 sm:mb-12 pb-2"
+        >
+          <span className="font-mono text-base sm:text-lg uppercase tracking-widest text-tsl-white font-semibold border-b-2 border-tsl-white pb-1 inline-block">
+            ECOSYSTEM DISCOVERY
+          </span>
+        </motion.div>
+
         <div className="max-w-4xl space-y-6">
-          {/* Subtle Category/Status Label */}
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="flex items-center space-x-3"
-          >
-            <span className="w-6 h-[2px] bg-tsl-blue" />
-            <span className="font-mono text-xs uppercase tracking-widest text-tsl-blue">
-              ECOSYSTEM DISCOVERY
-            </span>
-          </motion.div>
 
           {/* Hero Headline */}
           <motion.h1
