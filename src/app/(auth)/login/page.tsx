@@ -118,26 +118,26 @@ export default function LoginPage() {
       <div className="space-y-6">
         {/* Header */}
         <div className="space-y-2">
-          <h1 className="font-display text-2xl sm:text-3xl font-bold uppercase tracking-tight text-white">
+          <h1 className="font-display text-2xl sm:text-3xl font-bold uppercase tracking-tight text-slate-900">
             WELCOME BACK
           </h1>
-          <p className="text-xs sm:text-sm text-slate-400 font-sans">
+          <p className="text-xs sm:text-sm text-slate-500 font-sans">
             Sign in to access your builder radar, signals, and ecosystem index.
           </p>
         </div>
 
         {/* Error Feedback Banner */}
         {error && (
-          <div className="p-3.5 rounded-xl bg-red-500/10 border border-red-500/25 flex items-start space-x-2.5 text-xs text-red-400 font-sans">
-            <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
+          <div className="p-3.5 rounded-xl bg-red-50 border border-red-200/80 flex items-start space-x-2.5 text-xs text-red-600 font-sans">
+            <AlertCircle className="w-4 h-4 shrink-0 mt-0.5 text-red-500" />
             <span>{error}</span>
           </div>
         )}
 
         {/* Reset Feedback Banner */}
         {resetSent && (
-          <div className="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/25 flex items-start space-x-2.5 text-xs text-emerald-400 font-sans">
-            <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" />
+          <div className="p-3.5 rounded-xl bg-emerald-50 border border-emerald-200/80 flex items-start space-x-2.5 text-xs text-emerald-700 font-sans">
+            <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5 text-emerald-600" />
             <span>Password reset link sent to your email. Check your inbox!</span>
           </div>
         )}
@@ -146,7 +146,7 @@ export default function LoginPage() {
         <form onSubmit={handleLogin} className="space-y-4">
           {/* Email Field */}
           <div className="space-y-1.5">
-            <label className="text-[11px] font-mono uppercase tracking-wider text-slate-400 block">
+            <label className="text-[11px] font-mono uppercase tracking-wider text-slate-700 font-semibold block">
               EMAIL ADDRESS
             </label>
             <input
@@ -155,20 +155,20 @@ export default function LoginPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="founder@startup.africa"
-              className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-[#00D4FF] focus:ring-1 focus:ring-[#00D4FF]/30 transition-all font-sans"
+              className="w-full bg-slate-50/80 hover:bg-slate-50 border border-slate-200 focus:bg-white rounded-xl px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#0284C7] focus:ring-2 focus:ring-[#0284C7]/15 transition-all font-sans"
             />
           </div>
 
           {/* Password Field */}
           <div className="space-y-1.5">
             <div className="flex items-center justify-between">
-              <label className="text-[11px] font-mono uppercase tracking-wider text-slate-400 block">
+              <label className="text-[11px] font-mono uppercase tracking-wider text-slate-700 font-semibold block">
                 PASSWORD
               </label>
               <button
                 type="button"
                 onClick={handleForgotPassword}
-                className="text-[11px] font-mono text-[#00D4FF] hover:underline uppercase transition-colors"
+                className="text-[11px] font-mono text-[#0284C7] hover:underline uppercase transition-colors"
               >
                 Forgot Password?
               </button>
@@ -180,12 +180,12 @@ export default function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••••••"
-                className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 pr-11 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-[#00D4FF] focus:ring-1 focus:ring-[#00D4FF]/30 transition-all font-sans"
+                className="w-full bg-slate-50/80 hover:bg-slate-50 border border-slate-200 focus:bg-white rounded-xl px-4 py-3 pr-11 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#0284C7] focus:ring-2 focus:ring-[#0284C7]/15 transition-all font-sans"
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white transition-colors"
+                className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-700 transition-colors"
                 aria-label={showPassword ? "Hide password" : "Show password"}
               >
                 {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
@@ -200,9 +200,9 @@ export default function LoginPage() {
               id="remember"
               checked={rememberMe}
               onChange={(e) => setRememberMe(e.target.checked)}
-              className="w-4 h-4 rounded border-white/20 bg-white/5 text-[#00D4FF] focus:ring-[#00D4FF] focus:ring-offset-0 cursor-pointer accent-[#00D4FF]"
+              className="w-4 h-4 rounded border-slate-300 bg-white text-[#0284C7] focus:ring-[#0284C7] focus:ring-offset-0 cursor-pointer accent-[#0284C7]"
             />
-            <label htmlFor="remember" className="text-xs text-slate-400 font-sans cursor-pointer select-none">
+            <label htmlFor="remember" className="text-xs text-slate-600 font-sans cursor-pointer select-none">
               Remember this device for 30 days
             </label>
           </div>
@@ -211,18 +211,21 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={loading || googleLoading}
-            className="w-full py-3.5 bg-[#00D4FF] hover:bg-white text-black font-display font-bold text-xs uppercase tracking-widest rounded-xl transition-all duration-200 flex items-center justify-center space-x-2 shadow-[0_0_25px_rgba(0,212,255,0.3)] hover:shadow-[0_0_35px_rgba(255,255,255,0.4)] active:scale-[0.99] disabled:opacity-60 disabled:cursor-not-allowed mt-2"
+            className="group relative w-full py-3.5 bg-slate-900 text-white font-display font-bold text-xs uppercase tracking-widest rounded-xl overflow-hidden transition-all duration-300 flex items-center justify-center space-x-2 shadow-sm hover:shadow-[0_0_25px_rgba(2,132,199,0.35)] active:scale-[0.99] disabled:opacity-60 disabled:cursor-not-allowed mt-2"
           >
+            {/* Horizontal sweep accent layer (distinct from Join the Lens vertical bottom slide) */}
+            <span className="absolute inset-0 bg-gradient-to-r from-[#0284C7] to-[#0369a1] transition-transform duration-500 ease-out -translate-x-full group-hover:translate-x-0 pointer-events-none" />
+
             {loading ? (
-              <>
-                <Loader2 className="w-4 h-4 animate-spin text-black" />
+              <span className="relative z-10 flex items-center justify-center space-x-2">
+                <Loader2 className="w-4 h-4 animate-spin text-white" />
                 <span>SIGNING IN...</span>
-              </>
+              </span>
             ) : (
-              <>
+              <span className="relative z-10 flex items-center justify-center space-x-2">
                 <span>SIGN IN TO THE LENS</span>
-                <ArrowRight className="w-4 h-4" />
-              </>
+                <ArrowRight className="w-4 h-4 transition-transform duration-300 ease-out group-hover:translate-x-1.5" />
+              </span>
             )}
           </button>
         </form>
@@ -230,9 +233,9 @@ export default function LoginPage() {
         {/* Divider */}
         <div className="relative flex items-center justify-center my-4">
           <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-white/[0.08]" />
+            <div className="w-full border-t border-slate-200" />
           </div>
-          <span className="relative px-3 bg-[#0D111A] text-[10px] font-mono uppercase tracking-widest text-slate-500">
+          <span className="relative px-3 bg-white text-[10px] font-mono uppercase tracking-widest text-slate-400">
             OR
           </span>
         </div>
@@ -242,16 +245,16 @@ export default function LoginPage() {
           type="button"
           onClick={handleGoogleSignIn}
           disabled={loading || googleLoading}
-          className="w-full py-3 px-4 bg-white/[0.03] hover:bg-white/[0.07] border border-white/10 hover:border-white/20 text-white rounded-xl text-xs font-mono uppercase tracking-wider transition-all flex items-center justify-center space-x-3 active:scale-[0.99] disabled:opacity-60"
+          className="group w-full py-3 px-4 bg-white hover:bg-slate-50 border border-slate-200 hover:border-slate-300 text-slate-800 rounded-xl text-xs font-mono uppercase tracking-wider transition-all duration-200 flex items-center justify-center space-x-3 active:scale-[0.99] shadow-sm hover:shadow disabled:opacity-60"
         >
           {googleLoading ? (
             <>
-              <Loader2 className="w-4 h-4 animate-spin text-slate-400" />
+              <Loader2 className="w-4 h-4 animate-spin text-slate-500" />
               <span>CONNECTING GOOGLE...</span>
             </>
           ) : (
             <>
-              <GoogleIcon className="w-4 h-4" />
+              <GoogleIcon className="w-4 h-4 transition-transform duration-200 group-hover:scale-110" />
               <span>SIGN IN WITH GOOGLE</span>
             </>
           )}
@@ -259,10 +262,10 @@ export default function LoginPage() {
 
         {/* Switcher Link */}
         <div className="text-center pt-2">
-          <span className="text-xs text-slate-400 font-sans">Need an account? </span>
+          <span className="text-xs text-slate-500 font-sans">Need an account? </span>
           <Link
             href="/signup"
-            className="text-xs font-mono uppercase tracking-wider text-[#00D4FF] hover:text-white font-semibold transition-colors ml-1"
+            className="text-xs font-mono uppercase tracking-wider text-[#0284C7] hover:text-slate-900 font-semibold transition-colors ml-1"
           >
             Join The Lens →
           </Link>
@@ -271,4 +274,3 @@ export default function LoginPage() {
     </AuthSplitLayout>
   );
 }
-

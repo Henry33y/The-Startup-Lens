@@ -20,12 +20,9 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
-  const isAuthPage = pathname === "/login" || pathname === "/signup";
-
   useEffect(() => {
-    if (isAuthPage) return;
     const handleScroll = () => {
-      if (window.scrollY > 20) {
+      if (window.scrollY > 10) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -33,16 +30,14 @@ export default function Navbar() {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [isAuthPage]);
-
-  if (isAuthPage) return null;
+  }, []);
 
   return (
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 flex items-center",
         isScrolled
-          ? "h-[68px] sm:h-[72px] bg-tsl-black/90 backdrop-blur-md border-b border-tsl-dark-grey/60 shadow-2xl"
+          ? "h-[68px] sm:h-[72px] bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm"
           : "h-[80px] sm:h-[88px] bg-transparent"
       )}
     >
@@ -79,9 +74,10 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-6">
           <Link
             href="/login"
-            className="text-xs font-sans font-medium uppercase tracking-wider text-tsl-grey hover:text-tsl-white transition-colors px-2 py-1"
+            className="group relative px-2.5 py-1 text-xs font-sans font-medium uppercase tracking-wider text-tsl-grey hover:text-tsl-white transition-colors duration-300 inline-flex items-center"
           >
-            Sign In
+            <span>Sign In</span>
+            <span className="absolute bottom-0 left-0 w-full h-[2px] bg-tsl-blue origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out" />
           </Link>
           <Link
             href="/signup"
@@ -111,7 +107,7 @@ export default function Navbar() {
 
       {/* Mobile Drawer Menu Overlay */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-[68px] bg-tsl-black/95 backdrop-blur-xl z-40 flex flex-col justify-between px-6 py-10 border-t border-tsl-dark-grey/50 transition-all duration-300">
+        <div className="md:hidden fixed inset-0 top-[68px] bg-white/98 backdrop-blur-xl z-40 flex flex-col justify-between px-6 py-10 border-t border-slate-200 transition-all duration-300">
           <div className="flex flex-col gap-6">
             {NAV_LINKS.map((link) => {
               const isActive = pathname === link.href;
