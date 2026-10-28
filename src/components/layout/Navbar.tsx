@@ -20,7 +20,10 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
+  const isAuthPage = pathname === "/login" || pathname === "/signup";
+
   useEffect(() => {
+    if (isAuthPage) return;
     const handleScroll = () => {
       if (window.scrollY > 20) {
         setIsScrolled(true);
@@ -30,7 +33,9 @@ export default function Navbar() {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isAuthPage]);
+
+  if (isAuthPage) return null;
 
   return (
     <header

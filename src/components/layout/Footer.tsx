@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Logo from "@/components/shared/Logo";
 import { CheckCircle2 } from "lucide-react";
 
@@ -38,8 +39,12 @@ const FOOTER_COLUMNS = [
 ];
 
 export default function Footer() {
+  const pathname = usePathname();
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
+
+  const isAuthPage = pathname === "/login" || pathname === "/signup";
+  if (isAuthPage) return null;
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();

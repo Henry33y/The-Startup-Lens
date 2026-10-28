@@ -20,6 +20,8 @@
 }
 
 :root {
+  --font-space-grotesk: "Space Grotesk", sans-serif;
+  --font-montserrat: "Montserrat", sans-serif;
   --color-tsl-black: #FFFFFF;
   --color-tsl-black-soft: #F8FAFC;
   --color-tsl-surface: #FFFFFF;
