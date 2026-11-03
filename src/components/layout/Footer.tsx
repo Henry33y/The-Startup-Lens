@@ -6,6 +6,8 @@ import { usePathname } from "next/navigation";
 import Logo from "@/components/shared/Logo";
 import { CheckCircle2 } from "lucide-react";
 
+import { cn } from "@/lib/utils";
+
 const FOOTER_COLUMNS = [
   {
     title: "EXPLORE",
@@ -46,6 +48,8 @@ export default function Footer() {
   const isAuthPage = pathname === "/login" || pathname === "/signup";
   if (isAuthPage) return null;
 
+  const isDarkPage = pathname.startsWith("/startups");
+
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
@@ -54,7 +58,14 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-tsl-black border-t border-tsl-dark-grey/60 pt-16 pb-12 text-tsl-white">
+    <footer
+      className={cn(
+        "pt-16 pb-12 transition-colors",
+        isDarkPage
+          ? "bg-[#07080B] border-t border-white/[0.08] text-slate-100"
+          : "bg-tsl-black border-t border-tsl-dark-grey/60 text-tsl-white"
+      )}
+    >
       <div className="max-w-container mx-auto px-6 sm:px-10 lg:px-16 xl:px-20">
         {/* Compact Footer Newsletter Section */}
         <div className="pb-12 mb-12 border-b border-tsl-dark-grey/50 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
@@ -99,7 +110,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-tsl-dark-grey/40">
           {/* Brand & Manifesto Column */}
           <div className="md:col-span-5 space-y-6">
-            <Logo variant="dark" size="lg" />
+            <Logo variant={isDarkPage ? "light" : "dark"} size="lg" />
             <p className="text-tsl-grey text-sm max-w-md leading-relaxed font-sans">
               The Bloomberg + YouTube + LinkedIn for early-stage African builders. We discover, document, and amplify founders shaping Africa&apos;s tech future before everyone else catches on.
             </p>
