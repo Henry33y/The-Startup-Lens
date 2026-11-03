@@ -7,8 +7,6 @@ import MissionSection from "@/components/about/MissionSection";
 import VisionSection from "@/components/about/VisionSection";
 import HowWeOperate from "@/components/about/HowWeOperate";
 import LensSection from "@/components/about/LensSection";
-import PlatformVision from "@/components/about/PlatformVision";
-import WhyAfrica from "@/components/about/WhyAfrica";
 import AboutJoinLens from "@/components/about/AboutJoinLens";
 
 export const metadata: Metadata = {
@@ -68,13 +66,7 @@ export default function AboutPage() {
       {/* 7. THE LENS */}
       <LensSection />
 
-      {/* 8. WHAT WE'RE BUILDING */}
-      <PlatformVision />
-
-      {/* 9. WHY AFRICA */}
-      <WhyAfrica />
-
-      {/* 10. JOIN THE LENS */}
+      {/* 8. JOIN THE LENS */}
       <AboutJoinLens />
     </main>
   );
