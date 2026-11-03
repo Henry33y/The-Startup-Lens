@@ -12,7 +12,6 @@ import {
   Heart,
   Send,
   Sparkles,
-  MapPin,
   HelpCircle,
   Volume2,
   FileText,
@@ -95,7 +94,10 @@ export default function QuickStoryDrawer({
   // Gentle acoustic ambient tone synthesis via Web Audio API
   const startAudioTone = () => {
     try {
-      const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+      const AudioCtx =
+        window.AudioContext ||
+        (window as unknown as { webkitAudioContext: typeof AudioContext })
+          .webkitAudioContext;
       if (!AudioCtx) return;
       if (!audioCtxRef.current) {
         audioCtxRef.current = new AudioCtx();
@@ -108,7 +110,7 @@ export default function QuickStoryDrawer({
       const gain = audioCtxRef.current.createGain();
 
       osc.type = "sine";
-      osc.frequency.setValueAtTime(220, audioCtxRef.current.currentTime); // A3 gentle drone
+      osc.frequency.setValueAtTime(220, audioCtxRef.current.currentTime);
       gain.gain.setValueAtTime(0.015, audioCtxRef.current.currentTime);
 
       osc.connect(gain);
@@ -188,6 +190,19 @@ export default function QuickStoryDrawer({
   );
   const formattedCurrentTime = `0:${currentSeconds < 10 ? "0" : ""}${currentSeconds}`;
 
+  const getStageBadgeStyle = (stage: string) => {
+    switch (stage) {
+      case "Just Getting Started":
+        return "bg-amber-50 text-amber-800 border-amber-200/80";
+      case "Testing with Real People":
+        return "bg-sky-50 text-sky-800 border-sky-200/80";
+      case "Live & Open to Everyone":
+        return "bg-emerald-50 text-emerald-800 border-emerald-200/80";
+      default:
+        return "bg-slate-100 text-slate-700 border-slate-200";
+    }
+  };
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -197,9 +212,9 @@ export default function QuickStoryDrawer({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.25 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/80 backdrop-blur-md z-50 cursor-pointer"
+            className="fixed inset-0 bg-slate-900/40 backdrop-blur-xs z-50 cursor-pointer"
           />
 
           {/* 2. Slide-Over Panel */}
@@ -208,13 +223,17 @@ export default function QuickStoryDrawer({
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 30, stiffness: 300 }}
-            className="fixed top-0 right-0 bottom-0 w-full md:max-w-xl bg-[#090A0F] border-l border-white/[0.08] backdrop-blur-2xl z-50 overflow-y-auto flex flex-col shadow-[-20px_0_50px_rgba(0,0,0,0.85)]"
+            className="fixed top-0 right-0 bottom-0 w-full md:max-w-xl bg-white border-l border-slate-200 z-50 overflow-y-auto flex flex-col shadow-2xl"
           >
             {/* Top Sticky Header */}
-            <div className="sticky top-0 bg-[#090A0F]/95 backdrop-blur-xl border-b border-white/[0.08] p-5 sm:px-8 flex items-center justify-between z-20">
+            <div className="sticky top-0 bg-white/95 backdrop-blur-md border-b border-slate-200 p-5 sm:px-8 flex items-center justify-between z-20">
               
               {/* Stage Pill */}
-              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] font-mono tracking-wider uppercase text-slate-300">
+              <div
+                className={`inline-flex items-center space-x-2 px-3 py-1 rounded-full border text-[11px] font-mono tracking-wider uppercase ${getStageBadgeStyle(
+                  startup.stage
+                )}`}
+              >
                 <span className={`w-2 h-2 rounded-full ${stageConfig.dotClass}`} />
                 <span>{startup.stage}</span>
               </div>
@@ -224,13 +243,13 @@ export default function QuickStoryDrawer({
                 <button
                   type="button"
                   onClick={handleCopyLink}
-                  className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] text-xs font-mono uppercase tracking-wider text-slate-300 hover:text-white transition-colors cursor-pointer"
+                  className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-slate-50 hover:bg-slate-100 border border-slate-200 text-xs font-mono uppercase tracking-wider text-slate-700 hover:text-slate-900 transition-colors cursor-pointer shadow-2xs"
                   title="Copy direct story link"
                 >
                   {copied ? (
                     <>
-                      <Check className="w-3.5 h-3.5 text-emerald-400" />
-                      <span className="text-emerald-400">COPIED</span>
+                      <Check className="w-3.5 h-3.5 text-emerald-600" />
+                      <span className="text-emerald-600 font-semibold">COPIED</span>
                     </>
                   ) : (
                     <>
@@ -243,7 +262,7 @@ export default function QuickStoryDrawer({
                 <button
                   type="button"
                   onClick={onClose}
-                  className="p-1.5 rounded-lg bg-white/[0.04] hover:bg-white/[0.1] text-slate-400 hover:text-white transition-colors cursor-pointer"
+                  className="p-1.5 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-500 hover:text-slate-900 transition-colors cursor-pointer border border-slate-200 shadow-2xs"
                   aria-label="Close drawer"
                 >
                   <X className="w-5 h-5" />
@@ -256,20 +275,20 @@ export default function QuickStoryDrawer({
               
               {/* 1. HERO FOUNDER BANNER */}
               <div className="space-y-4">
-                <div className="relative h-64 sm:h-72 w-full rounded-2xl overflow-hidden border border-white/[0.08] bg-slate-900 group">
+                <div className="relative h-64 sm:h-72 w-full rounded-2xl overflow-hidden border border-slate-200 bg-slate-900 group shadow-xs">
                   <Image
                     src={startup.founderImageUrl}
                     alt={`${startup.founders[0].name} building ${startup.name}`}
                     fill
                     priority
                     unoptimized
-                    className="object-cover object-center filter contrast-110 brightness-95"
+                    className="object-cover object-center filter contrast-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#090A0F] via-[#090A0F]/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
                   
                   {/* Location badge on photo */}
                   <div className="absolute top-4 left-4 z-10">
-                    <span className="px-3 py-1 rounded-full bg-black/80 backdrop-blur-md border border-white/10 text-xs font-mono text-slate-200 flex items-center space-x-1.5">
+                    <span className="px-3 py-1 rounded-full bg-black/75 backdrop-blur-md border border-white/15 text-xs font-mono text-white flex items-center space-x-1.5 shadow-sm">
                       <span>{startup.countryFlag}</span>
                       <span>{startup.city}, {startup.country}</span>
                     </span>
@@ -277,7 +296,7 @@ export default function QuickStoryDrawer({
 
                   {/* Title overlay on bottom of photo */}
                   <div className="absolute bottom-4 left-4 right-4 z-10">
-                    <div className="text-[11px] font-mono uppercase tracking-widest text-[#00D4FF] font-semibold">
+                    <div className="text-[11px] font-mono uppercase tracking-widest text-sky-300 font-semibold">
                       {startup.category}
                     </div>
                     <h1 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-white">
@@ -286,35 +305,35 @@ export default function QuickStoryDrawer({
                   </div>
                 </div>
 
-                <p className="text-slate-200 font-sans text-base sm:text-lg font-medium leading-snug italic pt-1">
+                <p className="text-slate-700 font-sans text-base sm:text-lg font-medium leading-snug italic pt-1">
                   &ldquo;{startup.oneLiner}&rdquo;
                 </p>
               </div>
 
               {/* 2. THE EVERYDAY REALITY CALLOUT */}
-              <div className="bg-white/[0.03] border border-white/[0.08] rounded-xl p-5 space-y-2 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)]">
-                <div className="flex items-center space-x-2 text-xs font-mono uppercase tracking-wider text-[#00D4FF] font-semibold">
+              <div className="bg-slate-50 border border-slate-200/90 rounded-xl p-5 space-y-2 shadow-2xs">
+                <div className="flex items-center space-x-2 text-xs font-mono uppercase tracking-wider text-[#0284C7] font-semibold">
                   <Sparkles className="w-3.5 h-3.5" />
                   <span>THE REALITY ON THE GROUND</span>
                 </div>
-                <p className="text-slate-300 text-sm font-sans leading-relaxed">
+                <p className="text-slate-700 text-sm font-sans leading-relaxed">
                   {startup.everydayReality}
                 </p>
               </div>
 
               {/* 3. INTERACTIVE AUDIO VOICE CLIP PREVIEW */}
-              <div className="bg-[#0F131C] border border-[#00D4FF]/20 rounded-2xl p-5 sm:p-6 space-y-4 shadow-[0_0_30px_rgba(0,212,255,0.05)]">
+              <div className="bg-sky-50/50 border border-sky-200/80 rounded-2xl p-5 sm:p-6 space-y-4 shadow-xs">
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-2 text-xs font-mono uppercase tracking-widest text-[#00D4FF]">
-                    <Volume2 className="w-4 h-4 animate-pulse text-[#00D4FF]" />
+                  <div className="flex items-center space-x-2 text-xs font-mono uppercase tracking-widest text-[#0284C7] font-semibold">
+                    <Volume2 className="w-4 h-4 animate-pulse text-[#0284C7]" />
                     <span>AUTHENTIC VOICE DISPATCH</span>
                   </div>
-                  <span className="text-xs font-mono text-slate-400">
+                  <span className="text-xs font-mono text-slate-500">
                     {formattedCurrentTime} / {startup.voiceNote.durationLabel}
                   </span>
                 </div>
 
-                <p className="text-sm font-sans font-medium text-slate-200">
+                <p className="text-sm font-sans font-medium text-slate-900">
                   {startup.voiceNote.title}
                 </p>
 
@@ -325,18 +344,18 @@ export default function QuickStoryDrawer({
                     type="button"
                     whileTap={{ scale: 0.92 }}
                     onClick={togglePlayAudio}
-                    className="w-12 h-12 rounded-xl bg-[#00D4FF] hover:bg-white text-black flex items-center justify-center shrink-0 transition-all duration-200 shadow-[0_0_20px_rgba(0,212,255,0.4)] cursor-pointer"
+                    className="w-12 h-12 rounded-xl bg-[#0284C7] hover:bg-slate-900 text-white flex items-center justify-center shrink-0 transition-all duration-200 shadow-sm cursor-pointer"
                     aria-label={isPlaying ? "Pause voice note" : "Play voice note"}
                   >
                     {isPlaying ? (
-                      <Pause className="w-5 h-5 fill-black" />
+                      <Pause className="w-5 h-5 fill-white" />
                     ) : (
-                      <Play className="w-5 h-5 fill-black ml-0.5" />
+                      <Play className="w-5 h-5 fill-white ml-0.5" />
                     )}
                   </motion.button>
 
                   {/* Animated Waveform Visualization */}
-                  <div className="flex-1 flex items-center space-x-1 sm:space-x-1.5 h-10 px-3 bg-black/40 rounded-xl border border-white/[0.05] overflow-hidden">
+                  <div className="flex-1 flex items-center space-x-1 sm:space-x-1.5 h-10 px-3 bg-white rounded-xl border border-slate-200 overflow-hidden shadow-2xs">
                     {[
                       40, 65, 85, 45, 95, 75, 55, 80, 100, 60, 45, 85, 70, 90, 50,
                       65, 80, 40, 95, 70, 55, 85, 60, 75, 90, 45, 65, 80, 50,
@@ -368,7 +387,7 @@ export default function QuickStoryDrawer({
                           }
                           style={{ height: `${height}%` }}
                           className={`w-1 rounded-full transition-colors duration-150 origin-bottom ${
-                            hasPlayed ? "bg-[#00D4FF]" : "bg-slate-700"
+                            hasPlayed ? "bg-[#0284C7]" : "bg-slate-200"
                           }`}
                         />
                       );
@@ -382,7 +401,7 @@ export default function QuickStoryDrawer({
                     <button
                       type="button"
                       onClick={() => setShowTranscript(!showTranscript)}
-                      className="inline-flex items-center space-x-1.5 text-xs font-mono uppercase tracking-wider text-slate-400 hover:text-white transition-colors"
+                      className="inline-flex items-center space-x-1.5 text-xs font-mono uppercase tracking-wider text-slate-500 hover:text-slate-900 transition-colors"
                     >
                       <FileText className="w-3.5 h-3.5" />
                       <span>{showTranscript ? "Hide Transcript" : "Read Transcript Snippet"}</span>
@@ -393,7 +412,7 @@ export default function QuickStoryDrawer({
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="mt-2.5 p-3.5 rounded-xl bg-black/40 border border-white/[0.06] text-xs font-sans text-slate-300 leading-relaxed italic"
+                        className="mt-2.5 p-3.5 rounded-xl bg-white border border-slate-200 text-xs font-sans text-slate-700 leading-relaxed italic shadow-2xs"
                       >
                         &ldquo;{startup.voiceNote.transcriptSnippet}&rdquo;
                       </motion.div>
@@ -404,14 +423,14 @@ export default function QuickStoryDrawer({
 
               {/* 4. FOUNDER BACKSTORY ("Why We Started This") */}
               <div className="space-y-4 pt-2">
-                <div className="flex items-center space-x-2 border-b border-white/[0.08] pb-3">
-                  <UserCheck className="w-4 h-4 text-[#00D4FF]" />
-                  <h3 className="font-display text-xl font-bold uppercase tracking-tight text-slate-100">
+                <div className="flex items-center space-x-2 border-b border-slate-200 pb-3">
+                  <UserCheck className="w-4 h-4 text-[#0284C7]" />
+                  <h3 className="font-display text-xl font-bold uppercase tracking-tight text-slate-900">
                     {startup.backstory.title}
                   </h3>
                 </div>
 
-                <div className="space-y-4 text-slate-300 font-sans text-sm sm:text-base font-light leading-relaxed">
+                <div className="space-y-4 text-slate-700 font-sans text-sm sm:text-base font-normal leading-relaxed">
                   {startup.backstory.paragraphs.map((p, i) => (
                     <p key={i}>{p}</p>
                   ))}
@@ -422,9 +441,9 @@ export default function QuickStoryDrawer({
                   {startup.founders.map((founder) => (
                     <div
                       key={founder.name}
-                      className="p-3.5 rounded-xl bg-white/[0.025] border border-white/[0.06] flex items-center space-x-3"
+                      className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex items-center space-x-3 shadow-2xs"
                     >
-                      <div className="relative w-11 h-11 rounded-full overflow-hidden border border-white/10 shrink-0 bg-slate-800">
+                      <div className="relative w-11 h-11 rounded-full overflow-hidden border border-slate-200 shrink-0 bg-slate-200">
                         <Image
                           src={founder.avatarUrl}
                           alt={founder.name}
@@ -434,13 +453,13 @@ export default function QuickStoryDrawer({
                         />
                       </div>
                       <div>
-                        <div className="text-sm font-sans font-semibold text-slate-200">
+                        <div className="text-sm font-sans font-semibold text-slate-900">
                           {founder.name}
                         </div>
-                        <div className="text-xs font-mono text-slate-400">
+                        <div className="text-xs font-mono text-slate-500">
                           {founder.context}
                         </div>
-                        <div className="text-[11px] font-mono text-[#00D4FF]">
+                        <div className="text-[11px] font-mono text-[#0284C7] font-medium">
                           {founder.role}
                         </div>
                       </div>
@@ -450,13 +469,13 @@ export default function QuickStoryDrawer({
               </div>
 
               {/* 5. "WHAT WE NEED RIGHT NOW" HIGHLIGHT CARD */}
-              <div className="bg-[#00D4FF]/[0.05] border border-[#00D4FF]/30 rounded-2xl p-6 space-y-4 shadow-[0_0_25px_rgba(0,212,255,0.06)]">
-                <div className="flex items-center space-x-2 text-xs font-mono uppercase tracking-widest text-[#00D4FF] font-semibold">
-                  <HelpCircle className="w-4 h-4 text-[#00D4FF]" />
+              <div className="bg-sky-50/60 border border-sky-200/90 rounded-2xl p-6 space-y-4 shadow-xs">
+                <div className="flex items-center space-x-2 text-xs font-mono uppercase tracking-widest text-[#0284C7] font-bold">
+                  <HelpCircle className="w-4 h-4 text-[#0284C7]" />
                   <span>WHAT WE NEED RIGHT NOW</span>
                 </div>
 
-                <p className="text-xs text-slate-300 font-sans">
+                <p className="text-xs text-slate-600 font-sans">
                   The Startup Lens is community-backed. If you or someone you know can help with these, reach out directly:
                 </p>
 
@@ -464,9 +483,9 @@ export default function QuickStoryDrawer({
                   {startup.needsRightNow.map((need, idx) => (
                     <li
                       key={idx}
-                      className="flex items-start space-x-2.5 text-xs sm:text-sm text-slate-200 font-sans leading-relaxed"
+                      className="flex items-start space-x-2.5 text-xs sm:text-sm text-slate-800 font-sans leading-relaxed"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#00D4FF] mt-2 shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#0284C7] mt-2 shrink-0" />
                       <span>{need}</span>
                     </li>
                   ))}
@@ -474,11 +493,11 @@ export default function QuickStoryDrawer({
               </div>
 
               {/* 6. CHEER & ENCOURAGEMENT FORM */}
-              <div className="bg-white/[0.025] border border-white/[0.08] rounded-2xl p-6 space-y-5">
+              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 space-y-5 shadow-xs">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-2">
-                    <Heart className="w-4 h-4 text-rose-400 fill-rose-400" />
-                    <span className="font-display text-base font-bold uppercase tracking-tight text-slate-100">
+                    <Heart className="w-4 h-4 text-rose-500 fill-rose-500" />
+                    <span className="font-display text-base font-bold uppercase tracking-tight text-slate-900">
                       Cheer Them On
                     </span>
                   </div>
@@ -488,10 +507,10 @@ export default function QuickStoryDrawer({
                     type="button"
                     whileTap={{ scale: 0.92 }}
                     onClick={() => onCheer(startup.id)}
-                    className={`inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg border text-xs font-mono uppercase tracking-wider transition-all cursor-pointer ${
+                    className={`inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg border text-xs font-mono uppercase tracking-wider transition-all cursor-pointer shadow-2xs ${
                       isCheered
-                        ? "bg-rose-500/20 border-rose-500/40 text-rose-300"
-                        : "bg-white/[0.04] border-white/10 text-slate-300 hover:text-white"
+                        ? "bg-rose-50 border-rose-200 text-rose-600"
+                        : "bg-white border-slate-200 text-slate-700 hover:text-slate-900 hover:bg-slate-100"
                     }`}
                   >
                     <Heart
@@ -507,23 +526,23 @@ export default function QuickStoryDrawer({
                   <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="p-5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-center space-y-2"
+                    className="p-5 rounded-xl bg-emerald-50 border border-emerald-200 text-center space-y-2"
                   >
-                    <div className="w-9 h-9 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto">
+                    <div className="w-9 h-9 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
                       <Check className="w-5 h-5" />
                     </div>
-                    <div className="text-sm font-sans font-semibold text-emerald-300">
+                    <div className="text-sm font-sans font-semibold text-emerald-900">
                       Your note has been received!
                     </div>
-                    <p className="text-xs text-slate-300 font-sans max-w-sm mx-auto">
+                    <p className="text-xs text-slate-600 font-sans max-w-sm mx-auto">
                       We will bundle your encouragement into {startup.name}&apos;s weekly builder digest.
                     </p>
                   </motion.div>
                 ) : (
                   <form onSubmit={handleSendEncouragement} className="space-y-3.5">
-                    <p className="text-xs text-slate-400 font-sans">
+                    <p className="text-xs text-slate-600 font-sans">
                       Leave a genuine word of encouragement or an offer to help{" "}
-                      <strong className="text-slate-200">
+                      <strong className="text-slate-900 font-semibold">
                         {startup.founders[0].name}
                       </strong>
                       :
@@ -534,7 +553,7 @@ export default function QuickStoryDrawer({
                       value={senderName}
                       onChange={(e) => setSenderName(e.target.value)}
                       placeholder="Your name or organization (e.g. Ama from Kumasi)"
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-black/40 border border-white/[0.08] text-xs text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-[#00D4FF]/50"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#0284C7] focus:ring-1 focus:ring-[#0284C7]"
                     />
 
                     <textarea
@@ -543,12 +562,12 @@ export default function QuickStoryDrawer({
                       value={encouragementNote}
                       onChange={(e) => setEncouragementNote(e.target.value)}
                       placeholder="Loved reading about the offline sync idea. Keep pushing, we need this in Takoradi too!"
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-black/40 border border-white/[0.08] text-xs text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-[#00D4FF]/50 resize-none font-sans"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#0284C7] focus:ring-1 focus:ring-[#0284C7] resize-none font-sans"
                     />
 
                     <button
                       type="submit"
-                      className="w-full py-3 rounded-xl bg-white/[0.08] hover:bg-[#00D4FF] text-white hover:text-black font-display font-bold text-xs uppercase tracking-widest transition-all duration-300 flex items-center justify-center space-x-2 shadow-sm hover:shadow-[0_0_20px_rgba(0,212,255,0.3)] cursor-pointer"
+                      className="w-full py-3 rounded-xl bg-slate-900 hover:bg-[#0284C7] text-white font-display font-bold text-xs uppercase tracking-widest transition-all duration-200 flex items-center justify-center space-x-2 shadow-xs cursor-pointer"
                     >
                       <Send className="w-3.5 h-3.5" />
                       <span>Send Encouragement to {startup.founders[0].name}</span>
@@ -560,14 +579,14 @@ export default function QuickStoryDrawer({
             </div>
 
             {/* Bottom Footer Action */}
-            <div className="p-5 sm:px-8 border-t border-white/[0.08] bg-[#090A0F]/90 backdrop-blur-xl flex items-center justify-between">
+            <div className="p-5 sm:px-8 border-t border-slate-200 bg-white/95 backdrop-blur-md flex items-center justify-between">
               <span className="text-xs font-mono text-slate-500">
                 The Startup Lens • Human-First Directory
               </span>
               <button
                 type="button"
                 onClick={onClose}
-                className="text-xs font-mono uppercase tracking-wider text-[#00D4FF] hover:underline cursor-pointer"
+                className="text-xs font-mono uppercase tracking-wider text-[#0284C7] hover:underline cursor-pointer font-medium"
               >
                 Close Story [ESC]
               </button>
@@ -578,4 +597,3 @@ export default function QuickStoryDrawer({
     </AnimatePresence>
   );
 }
-

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Search, X, SlidersHorizontal, ChevronDown, RotateCcw } from "lucide-react";
+import { Search, X, ChevronDown, RotateCcw } from "lucide-react";
 import {
   SectorCategory,
   JourneyStage,
@@ -44,9 +44,9 @@ export default function StartupsFilterBar({
       {/* 1. Search Bar & Dropdowns Row */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-4 items-center">
         
-        {/* Search Input (7 cols on lg) */}
+        {/* Search Input (6 cols on lg) */}
         <div className="lg:col-span-6 relative">
-          <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-500">
+          <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
             <Search className="w-4 h-4" />
           </div>
           <input
@@ -54,13 +54,13 @@ export default function StartupsFilterBar({
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
             placeholder="Search by problem, city, or founder name..."
-            className="w-full pl-11 pr-10 py-3.5 bg-[#0D0F15] border border-white/[0.08] rounded-xl text-sm text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-[#00D4FF]/50 focus:ring-1 focus:ring-[#00D4FF]/30 transition-all font-sans shadow-[inset_0_1px_0_0_rgba(255,255,255,0.03)]"
+            className="w-full pl-11 pr-10 py-3.5 bg-white border border-slate-200 rounded-xl text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#0284C7] focus:ring-2 focus:ring-[#0284C7]/20 transition-all font-sans shadow-xs"
           />
           {searchQuery && (
             <button
               type="button"
               onClick={() => onSearchChange("")}
-              className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-white transition-colors"
+              className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-slate-700 transition-colors"
               aria-label="Clear search"
             >
               <X className="w-4 h-4" />
@@ -76,15 +76,15 @@ export default function StartupsFilterBar({
             <select
               value={selectedCountry}
               onChange={(e) => onSelectCountry(e.target.value)}
-              className="w-full appearance-none bg-[#0D0F15] border border-white/[0.08] hover:border-white/[0.15] rounded-xl pl-4 pr-10 py-3.5 text-xs font-mono uppercase tracking-wider text-slate-300 focus:outline-none focus:border-[#00D4FF]/50 focus:ring-1 focus:ring-[#00D4FF]/30 transition-all cursor-pointer shadow-[inset_0_1px_0_0_rgba(255,255,255,0.03)]"
+              className="w-full appearance-none bg-white border border-slate-200 hover:border-slate-300 rounded-xl pl-4 pr-10 py-3.5 text-xs font-mono uppercase tracking-wider text-slate-700 focus:outline-none focus:border-[#0284C7] focus:ring-2 focus:ring-[#0284C7]/20 transition-all cursor-pointer shadow-xs"
             >
               {COUNTRIES.map((c) => (
-                <option key={c.name} value={c.name} className="bg-[#0D0F15] text-slate-200">
+                <option key={c.name} value={c.name} className="bg-white text-slate-800">
                   {c.flag} {c.name}
                 </option>
               ))}
             </select>
-            <div className="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-slate-500">
+            <div className="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-slate-400">
               <ChevronDown className="w-4 h-4" />
             </div>
           </div>
@@ -94,13 +94,13 @@ export default function StartupsFilterBar({
             <select
               value={selectedStage}
               onChange={(e) => onSelectStage(e.target.value as JourneyStage | "All Stages")}
-              className="w-full appearance-none bg-[#0D0F15] border border-white/[0.08] hover:border-white/[0.15] rounded-xl pl-4 pr-10 py-3.5 text-xs font-mono uppercase tracking-wider text-slate-300 focus:outline-none focus:border-[#00D4FF]/50 focus:ring-1 focus:ring-[#00D4FF]/30 transition-all cursor-pointer shadow-[inset_0_1px_0_0_rgba(255,255,255,0.03)]"
+              className="w-full appearance-none bg-white border border-slate-200 hover:border-slate-300 rounded-xl pl-4 pr-10 py-3.5 text-xs font-mono uppercase tracking-wider text-slate-700 focus:outline-none focus:border-[#0284C7] focus:ring-2 focus:ring-[#0284C7]/20 transition-all cursor-pointer shadow-xs"
             >
-              <option value="All Stages" className="bg-[#0D0F15] text-slate-200">
+              <option value="All Stages" className="bg-white text-slate-800">
                 ⚡ All Stages
               </option>
               {JOURNEY_STAGES.map((s) => (
-                <option key={s.stage} value={s.stage} className="bg-[#0D0F15] text-slate-200">
+                <option key={s.stage} value={s.stage} className="bg-white text-slate-800">
                   {s.stage === "Just Getting Started"
                     ? "🟡 Just Getting Started"
                     : s.stage === "Testing with Real People"
@@ -109,7 +109,7 @@ export default function StartupsFilterBar({
                 </option>
               ))}
             </select>
-            <div className="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-slate-500">
+            <div className="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-slate-400">
               <ChevronDown className="w-4 h-4" />
             </div>
           </div>
@@ -119,7 +119,7 @@ export default function StartupsFilterBar({
       </div>
 
       {/* 2. Category Pill Bar (Horizontal Scrollable with Smooth Active Pill) */}
-      <div className="relative flex items-center justify-between gap-4 pt-2">
+      <div className="relative flex items-center justify-between gap-4 pt-1">
         <div className="flex items-center space-x-2 overflow-x-auto pb-2 scrollbar-none no-scrollbar py-1 w-full">
           {SECTOR_CATEGORIES.map((cat) => {
             const isSelected = selectedCategory === cat;
@@ -128,19 +128,19 @@ export default function StartupsFilterBar({
                 key={cat}
                 type="button"
                 onClick={() => onSelectCategory(cat)}
-                className={`relative px-4 py-2 rounded-lg text-xs font-mono uppercase tracking-wider whitespace-nowrap transition-colors duration-200 cursor-pointer ${
-                  isSelected ? "text-slate-900 font-bold" : "text-slate-400 hover:text-slate-200"
+                className={`relative px-4 py-2.5 rounded-lg text-xs font-mono uppercase tracking-wider whitespace-nowrap transition-colors duration-200 cursor-pointer ${
+                  isSelected ? "text-white font-semibold" : "text-slate-600 hover:text-slate-900"
                 }`}
               >
                 {isSelected && (
                   <motion.div
                     layoutId="activeCategory"
                     transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                    className="absolute inset-0 bg-gradient-to-r from-[#00D4FF] to-[#38BDF8] rounded-lg shadow-[0_0_20px_rgba(0,212,255,0.4)]"
+                    className="absolute inset-0 bg-[#0284C7] rounded-lg shadow-sm"
                   />
                 )}
                 {!isSelected && (
-                  <div className="absolute inset-0 bg-[#0D0F15] border border-white/[0.06] rounded-lg hover:border-white/[0.12] transition-colors" />
+                  <div className="absolute inset-0 bg-white border border-slate-200/80 rounded-lg hover:border-slate-300 hover:bg-slate-50/80 transition-colors shadow-xs" />
                 )}
                 <span className="relative z-10">{cat}</span>
               </button>
@@ -150,12 +150,12 @@ export default function StartupsFilterBar({
       </div>
 
       {/* 3. Results Meta & Clear Filters Row */}
-      <div className="flex items-center justify-between text-xs font-mono text-slate-500 pt-1 border-t border-white/[0.04]">
+      <div className="flex items-center justify-between text-xs font-mono text-slate-500 pt-3 border-t border-slate-200">
         <div className="flex items-center space-x-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#00D4FF] animate-pulse" />
+          <span className="w-2 h-2 rounded-full bg-[#0284C7]" />
           <span>
-            SHOWING <strong className="text-slate-300 font-semibold">{filteredCount}</strong> OF{" "}
-            <strong className="text-slate-300 font-semibold">{totalCount}</strong> STORIES
+            SHOWING <strong className="text-slate-900 font-semibold">{filteredCount}</strong> OF{" "}
+            <strong className="text-slate-900 font-semibold">{totalCount}</strong> STORIES
           </span>
         </div>
 
@@ -163,7 +163,7 @@ export default function StartupsFilterBar({
           <button
             type="button"
             onClick={onResetFilters}
-            className="inline-flex items-center space-x-1.5 text-xs text-slate-400 hover:text-[#00D4FF] transition-colors"
+            className="inline-flex items-center space-x-1.5 text-xs text-slate-500 hover:text-[#0284C7] font-medium transition-colors"
           >
             <RotateCcw className="w-3.5 h-3.5" />
             <span>RESET FILTERS</span>
@@ -173,4 +173,3 @@ export default function StartupsFilterBar({
     </div>
   );
 }
-

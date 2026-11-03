@@ -130,7 +130,7 @@ export default function StartupsDirectory() {
   }, [searchQuery, selectedCategory, selectedCountry, selectedStage]);
 
   return (
-    <div className="min-h-screen bg-[#07080B] text-slate-100 selection:bg-[#00D4FF] selection:text-black pb-28">
+    <div className="min-h-screen bg-[#F8FAFC] text-slate-900 selection:bg-[#0284C7] selection:text-white pb-28">
       {/* 1. Header */}
       <StartupsHeader />
 
@@ -180,23 +180,23 @@ export default function StartupsDirectory() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="rounded-2xl bg-[#0D0F15] border border-white/[0.08] p-12 text-center max-w-lg mx-auto space-y-4"
+            className="rounded-2xl bg-white border border-slate-200 p-12 text-center max-w-lg mx-auto space-y-4 shadow-sm"
           >
-            <div className="w-12 h-12 rounded-full bg-white/[0.04] border border-white/[0.08] flex items-center justify-center mx-auto text-slate-400">
+            <div className="w-12 h-12 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center mx-auto text-slate-500">
               <SearchX className="w-6 h-6" />
             </div>
             <div className="space-y-1">
-              <h3 className="font-display text-xl font-bold uppercase tracking-tight text-white">
+              <h3 className="font-display text-xl font-bold uppercase tracking-tight text-slate-900">
                 No Founder Stories Found
               </h3>
-              <p className="text-xs text-slate-400 font-sans leading-relaxed">
+              <p className="text-xs text-slate-600 font-sans leading-relaxed">
                 We couldn&apos;t find any startup stories matching your current filters. Try relaxing your search terms or clearing filters.
               </p>
             </div>
             <button
               type="button"
               onClick={handleResetFilters}
-              className="inline-flex items-center space-x-2 px-4 py-2.5 rounded-xl bg-[#00D4FF] hover:bg-white text-black font-display font-bold text-xs uppercase tracking-wider transition-all duration-200 cursor-pointer shadow-[0_0_20px_rgba(0,212,255,0.3)]"
+              className="inline-flex items-center space-x-2 px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-[#0284C7] text-white font-display font-bold text-xs uppercase tracking-wider transition-all duration-200 cursor-pointer shadow-sm"
             >
               <RotateCcw className="w-3.5 h-3.5" />
               <span>Reset All Filters</span>

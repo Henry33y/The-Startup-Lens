@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 
 export default function StartupsPage() {
   return (
-    <main className="min-h-screen bg-[#07080B] text-slate-100">
+    <main className="min-h-screen bg-[#F8FAFC] text-slate-900">
       <StartupsDirectory />
     </main>
   );
